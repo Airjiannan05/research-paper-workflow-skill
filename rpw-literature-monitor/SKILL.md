@@ -1,10 +1,6 @@
 ---
 name: rpw-literature-monitor
 description: "Track recent competitors, scoop risk, and new papers on arXiv, OpenReview, and conference venues. Use for competitor monitoring, new-paper tracking, scoop watch, 竞品监控, 新论文追踪, 最近有没有类似idea. Do not do deep related-work search — that's rpw-literature-search."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Literature Monitor

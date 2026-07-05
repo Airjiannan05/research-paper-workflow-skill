@@ -1,10 +1,6 @@
 ---
 name: rpw-common
 description: "Shared governance for the Research Paper Workflow skill family: routing, source verification, next-step menus, artifact contracts, and paper_state.yaml schema. Use only when maintaining skills or resolving routing conflicts; not for ordinary research tasks."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ./
 ---
 
 # RPW Common

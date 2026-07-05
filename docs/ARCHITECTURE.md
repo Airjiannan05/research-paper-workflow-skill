@@ -4,16 +4,23 @@
 
 This skill treats a paper as a **research storyline**, not a text-generation task. The core insight is: paper quality comes from the quality of sequential decisions — idea formation, literature positioning, experiment design, implementation, result interpretation, writing, review, audit, submission, and rebuttal. Each stage has a clear owner; artifacts don't overwrite each other; gates must pass before proceeding.
 
-### Why Monolithic
+### Why Multi-Skill Family
 
-This skill uses a single `SKILL.md` rather than splitting into 15 individual skill directories. The trade-off:
+This skill uses a **16-skill multi-directory architecture** inspired by CCFA-Skills' progressive-disclosure pattern:
+
+| Role | Directory | Description |
+|---|---|---|
+| Index / Router | `SKILL.md` (root) | Entry point table; loads only the matching rpw-* skill |
+| Shared Governance | `rpw-common/SKILL.md` | Routing rules, source verification, artifact contracts, state schema |
+| Runtime Skills | `rpw-pipeline/` through `rpw-rebuttal/` | 15 independent owner skills, each with its own SKILL.md and precise trigger phrases |
+| Shared Resources | `references/` `assets/` `scripts/` | Loaded on demand by each skill via relative paths |
 
 | Approach | Pros | Cons |
 |---|---|---|
-| **Monolithic** (this skill) | Simpler install, no routing ambiguity, consistent state via `paper_state.yaml` | Full context loaded every time; harder to maintain individual modes |
-| **Multi-skill** (CCFA-Skills) | Progressive disclosure, independent evolution, clear trigger boundaries | Complex install, routing conflicts, cross-skill state sync |
+| **Multi-Skill Family** (this skill) | Progressive disclosure — only the matching skill loads; precise trigger boundaries with EN/CN phrases; each skill evolves independently; context stays lean | More directories to manage; cross-skill routing needs clear contracts |
+| **Monolithic** (original design) | Simpler install, no routing ambiguity | Full context loaded every time; harder to maintain individual modes |
 
-For most solo researchers, the monolithic approach is sufficient. Teams or projects that need independent mode evolution should consider splitting.
+Each rpw-* skill references shared governance via `../rpw-common/` and shared resources via `../references/`, `../assets/`, `../scripts/`.
 
 ## Architecture Layers
 
@@ -21,36 +28,31 @@ For most solo researchers, the monolithic approach is sufficient. Teams or proje
 User Request
     │
     ▼
-┌─────────────────────────────────────────┐
-│ SKILL.md          ← Canonical contract   │
-│ Entry point table → mode routing         │
-│ Stage map → stage gates                  │
-│ Mode rules → behavior per mode           │
-└──────────────┬──────────────────────────┘
-               │ loads on demand
-    ┌──────────┼──────────┐
-    ▼          ▼          ▼
-┌────────┐ ┌────────┐ ┌────────┐
-│references/ │ assets/  │ scripts/│
-│            │          │         │
-│ workflow   │ templates│ validate │
-│ source-    │ paper    │ generate │
-│  verification│ state  │ aggregate│
-│ experiment │ config   │ check    │
-│  design    │ logging  │ build    │
-│ writing    │ run      │ make     │
-│ review     │ matrix   │ latex    │
-│ rebuttal   │ ...      │ ...      │
-└────┬───────┘ └────┬────┘ └────┬────┘
-     │              │           │
-     └──────────────┼───────────┘
-                    ▼
-            paper_state.yaml
-            (shared project state)
-                    │
-                    ▼
-            User's Paper Project
-            (code, results, manuscript)
+┌─────────────────────────────────────────────┐
+│ SKILL.md (root)     ← Index / Router         │
+│ Entry point table → loads matching rpw-*     │
+└──────────────┬──────────────────────────────┘
+               │ matches and loads
+    ┌──────────┼──────────────────────────┐
+    ▼          ▼                          ▼
+┌──────────┐ ┌──────────────────┐ ┌──────────────┐
+│rpw-common│ │ rpw-* (15 skills)│ │shared resources│
+│          │ │                  │ │              │
+│ routing  │ │ rpw-pipeline     │ │ references/  │
+│ verify   │ │ rpw-idea-optimize│ │ assets/      │
+│ state    │ │ rpw-idea-review  │ │ scripts/     │
+│ contracts│ │ ...              │ │              │
+│          │ │ rpw-rebuttal     │ │              │
+└────┬─────┘ └────────┬─────────┘ └──────┬───────┘
+     │                │                  │
+     └────────────────┼──────────────────┘
+                      ▼
+              paper_state.yaml
+              (shared project state)
+                      │
+                      ▼
+              User's Paper Project
+              (code, results, manuscript)
 ```
 
 ## Platform Adapters

@@ -1,10 +1,6 @@
 ---
 name: rpw-submission-check
 description: "Verify venue-specific submission compliance: page limits, anonymization, PDF metadata, template, references, appendix, artifact package, reproducibility checklist, ethics, and AI disclosure. Use for submission check, venue compliance, 投稿检查, 格式检查, 匿名检查, camera-ready. Do not polish content — that's rpw-paper-writer."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Submission Checker

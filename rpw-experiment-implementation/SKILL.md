@@ -1,10 +1,6 @@
 ---
 name: rpw-experiment-implementation
 description: "Turn an experiment plan into a runnable research-engineering package: repo layout, config schema, run matrix, command templates, logging schema, baseline checklist, and reproducibility passport. Use for experiment implementation, code scaffold, run matrix generation, 实验实现, 代码工程, 生成run matrix. Do not design experiments — that's rpw-experiment-design."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Experiment Implementation

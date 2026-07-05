@@ -1,10 +1,6 @@
 ---
 name: rpw-idea-optimize
 description: "Turn rough research directions into a concrete, falsifiable research story: problem, gap, root challenge, insight, method, minimum experiment, and novelty threats. Use for idea optimization, direction shaping, rescue routes, 优化idea, 找方向, 研究思路优化, 方向探索. Do not rank or score multiple ideas — that's rpw-idea-review."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Idea Optimizer

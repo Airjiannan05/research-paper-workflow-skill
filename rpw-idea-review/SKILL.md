@@ -1,10 +1,6 @@
 ---
 name: rpw-idea-review
 description: "Strictly review a research idea for novelty, non-triviality, insight quality, feasibility, evidence path, and venue fit. Score and recommend keep/modify/kill. Use for idea ranking, scoring, go/no-go decisions, 评审idea, idea打分, 判断创新性, 取舍. Do not optimize or rescue ideas — that's rpw-idea-optimize."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Idea Reviewer

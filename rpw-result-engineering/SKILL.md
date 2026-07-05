@@ -1,10 +1,6 @@
 ---
 name: rpw-result-engineering
 description: "Validate experiment logs, detect missing/failed/duplicate runs, aggregate multi-seed results into mean/std tables, and generate CSV/Markdown/LaTeX output. Use for result processing, log validation, table generation, 结果工程, 日志验证, 聚合结果, 生成LaTeX表格. Do not interpret results — that's rpw-result-analysis."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Result Engineering

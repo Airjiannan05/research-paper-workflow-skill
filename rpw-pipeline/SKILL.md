@@ -1,10 +1,6 @@
 ---
 name: rpw-pipeline
 description: "Initialize a paper project, break it into stages with gates, create paper_state.yaml, and decide the next owner skill. Use for project scaffolding, full-project planning, 初始化论文项目, 项目规划, 拆阶段. Do not generate research content or write the manuscript."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Pipeline

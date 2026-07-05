@@ -1,7 +1,7 @@
 {
   "name": "research-paper-workflow",
   "version": "1.0.0",
-  "description": "End-to-end research paper workflow for CS, AI, AI4Science papers — from idea to submission. 14-stage pipeline: idea optimization, literature search, experiment design, implementation, result engineering, paper writing, review, integrity audit, submission check, and rebuttal.",
+  "description": "16-skill research paper workflow family for CS, AI, AI4Science papers — from idea to submission. 15-stage pipeline (0–14): project scaffold, idea optimization, idea review, literature monitoring, literature search, claim design, experiment design, experiment implementation, result engineering, result analysis, paper writing, peer review, integrity audit, submission check, and rebuttal. Plus shared governance (rpw-common).",
   "author": {
     "name": "Airjiannan05"
   },

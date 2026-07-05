@@ -1,10 +1,6 @@
 ---
 name: rpw-literature-search
 description: "Systematic literature search for prior art, benchmarks, baselines, SOTA methods, and open gaps. Produce paper cards, a mechanism-level related-work matrix, and a gap synthesis. Use for related work search, literature review, benchmark discovery, 文献检索, 相关工作搜索, 找baseline, 找benchmark. Do not verify already-cited sources in a manuscript — that's rpw-integrity-audit."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Literature Searcher

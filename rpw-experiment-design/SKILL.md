@@ -1,10 +1,6 @@
 ---
 name: rpw-experiment-design
 description: "Design experiments that test paper claims: datasets, baselines, metrics, ablations, robustness tests, and result-table shells. Produce a claim-to-test mapping with execution priority. Use for experiment design, baseline planning, 实验设计, 设计baseline, 消融实验规划. Do not implement code — that's rpw-experiment-implementation."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Experiment Designer

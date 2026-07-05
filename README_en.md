@@ -100,7 +100,7 @@ research-paper-workflow/
 ├── SKILL.md                           ← index and router for all 16 skills
 │
 ├── rpw-common/SKILL.md                ← shared governance: routing, verification, artifacts, state
-├── rpw-pipeline/SKILL.md              ← project scaffold: init ccfa.yaml, plan stages, set gates
+├── rpw-pipeline/SKILL.md              ← project scaffold: init paper_state.yaml, plan stages, set gates
 ├── rpw-idea-optimize/SKILL.md         ← idea optimization: vague → falsifiable research story
 ├── rpw-idea-review/SKILL.md           ← idea review: strict scoring of novelty/feasibility/venue fit
 ├── rpw-literature-monitor/SKILL.md    ← literature monitor: competitor tracking, scoop alerts
@@ -185,7 +185,7 @@ research-paper-workflow/
 └── scripts/                           ← shared utility scripts (Python stdlib, zero dependencies)
     ├── build_paper_matrix.py          ← paper cards → related-work matrix
     ├── check_claim_manifest.py        ← validate claim manifest completeness
-    ├── validate_paper_state.py        ← validate ccfa.yaml fields and consistency
+    ├── validate_paper_state.py        ← validate paper_state.yaml fields and consistency
     ├── build_revision_ledger.py       ← reviewer comments → revision ledger
     ├── generate_run_matrix.py         ← expand experiment axes → reproducible run matrix
     ├── validate_result_logs.py        ← check log fields/duplicate runs/missing seeds/failures
@@ -203,7 +203,7 @@ This skill works across multiple AI coding agents. Choose your platform below.
 
 ### 4.1 Claude Code (recommended)
 
-**Option A: Plugin marketplace**
+**Option A: Plugin marketplace** ⚠️ Experimental
 ```bash
 # In Claude Code, register this repo as a marketplace
 /plugin marketplace add Airjiannan05/research-paper-workflow-skill
@@ -211,6 +211,7 @@ This skill works across multiple AI coding agents. Choose your platform below.
 # Then install
 /plugin install research-paper-workflow@research-paper-workflow
 ```
+> Marketplace support may vary by Claude Code version. If it fails, use Option B/C/D.
 
 **Option B: Manual copy — project-local** (only this project)
 ```bash
@@ -252,25 +253,18 @@ Or ask: *"What skills are available?"*
 
 > ⚠️ ChatGPT cannot directly run the scripts or edit local files. The skill will guide you to run scripts manually and paste results back.
 
-### 4.3 OpenAI Codex CLI
+### 4.3 Compatibility Tiers
 
-```bash
-mkdir -p ~/.codex/skills/research-paper-workflow
-cp -r SKILL.md references/ assets/ scripts/ agents/ examples/ ~/.codex/skills/research-paper-workflow/
-```
+| Tier | Platform | Notes |
+|---|---|---|
+| ✅ Tested | Claude Code (manual install) | Options B/C/D verified working |
+| ✅ Tested | GitHub local usage | Used directly as project skill folder |
+| 🟡 Likely Compatible | ChatGPT Custom GPT | Upload SKILL.md + references as knowledge |
+| 🔬 Experimental | OpenAI Codex CLI | Agent Skills open standard; verify with your version |
+| 🔬 Experimental | Cursor / Windsurf / Gemini CLI / GitHub Copilot | Should support Agent Skills standard directory layout |
+| ❓ Unknown | Claude Code Plugin Marketplace | `/plugin marketplace` behavior varies by version |
 
-### 4.4 Cursor / Windsurf / Other Agents
-
-The Agent Skills format is an open standard. Place the skill folder in your agent's skills directory:
-
-| Agent | Skills path |
-|---|---|
-| Cursor | `~/.cursor/skills/` |
-| Windsurf | `~/.windsurf/skills/` |
-| Gemini CLI | `~/.gemini/skills/` |
-| GitHub Copilot | `~/.copilot/skills/` or `.github/skills/` |
-
-All agents auto-discover skills from these directories. Restart the agent after installation.
+> For experimental platforms: copy the skill folder to the agent's skills directory (e.g., `~/.cursor/skills/`, `~/.windsurf/skills/`), restart, and test.
 
 ---
 

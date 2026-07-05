@@ -1,10 +1,6 @@
 ---
 name: rpw-integrity-audit
 description: "Audit a manuscript for claim-support alignment, citation-context accuracy, numeric consistency, figure/table/text cross-check, and source verification status. Use for integrity audit, citation check, fact verification, 完整性审计, 引用检查, 数字核对, claim验证. Do not do broad literature search — that's rpw-literature-search."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Integrity Auditor

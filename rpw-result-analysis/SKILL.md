@@ -1,10 +1,6 @@
 ---
 name: rpw-result-analysis
 description: "Interpret verified experiment results into supported claims and limitations. Produce main result interpretation, ablation analysis, failure cases, and claim support status. Use for result analysis, claim interpretation, 结果分析, 解释实验结果, claim支持判断. Do not write the paper — that's rpw-paper-writer."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Result Analysis

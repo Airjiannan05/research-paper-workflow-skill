@@ -88,7 +88,7 @@ mkdir -p ~/.claude/skills && cp -r research-paper-workflow-skill ~/.claude/skill
 
 ---
 
-![Architecture](figures/architecture.svg)
+![Architecture](figures/architecture.png)
 
 ## 3. 目录结构
 
@@ -100,7 +100,7 @@ research-paper-workflow/
 ├── SKILL.md                           ← 16 个 skill 的索引与路由入口
 │
 ├── rpw-common/SKILL.md                ← 共享治理：路由规则、来源验证、产物归属、状态管理
-├── rpw-pipeline/SKILL.md              ← 项目搭建：初始化 ccfa.yaml、拆阶段、设 gate
+├── rpw-pipeline/SKILL.md              ← 项目搭建：初始化 paper_state.yaml、拆阶段、设 gate
 ├── rpw-idea-optimize/SKILL.md         ← idea 优化：模糊方向 → 可证伪研究故事
 ├── rpw-idea-review/SKILL.md           ← idea 评审：严格打分 novelty/可行性/venue fit
 ├── rpw-literature-monitor/SKILL.md    ← 文献监控：竞品追踪、scoop 预警、arXiv 动态
@@ -185,7 +185,7 @@ research-paper-workflow/
 └── scripts/                           ← 共享工具脚本（Python 标准库，零依赖）
     ├── build_paper_matrix.py          ← 从 paper cards 生成 related-work 矩阵
     ├── check_claim_manifest.py        ← 验证 claim manifest 完整性
-    ├── validate_paper_state.py        ← 验证 ccfa.yaml 字段与一致性
+    ├── validate_paper_state.py        ← 验证 paper_state.yaml 字段与一致性
     ├── build_revision_ledger.py       ← 从 reviewer 评论生成 revision ledger
     ├── generate_run_matrix.py         ← 展开实验轴为可复现 run matrix
     ├── validate_result_logs.py        ← 检查日志字段/重复 run/缺失 seed/失败 run
@@ -203,12 +203,12 @@ research-paper-workflow/
 
 ### 4.1 Claude Code（推荐）
 
-**方式 0：直接叫claude安装**
+**方式 0：直接叫 Claude 安装**
 ```bash
 直接帮我安装这个skill: https://github.com/Airjiannan05/research-paper-workflow-skill.git
 ```
 
-**方式 A：插件市场安装**
+**方式 A：插件市场安装** ⚠️ 实验性
 ```bash
 # 在 Claude Code 中注册本仓库为 marketplace
 /plugin marketplace add Airjiannan05/research-paper-workflow-skill
@@ -216,6 +216,7 @@ research-paper-workflow/
 # 安装
 /plugin install research-paper-workflow@research-paper-workflow
 ```
+> 插件市场功能可能因 Claude Code 版本而异。如失败，使用方式 B/C/D。
 
 **方式 B：手动复制 — 项目级**（仅当前项目生效）
 ```bash
@@ -257,25 +258,18 @@ ln -s ~/research-paper-workflow-skill ~/.claude/skills/research-paper-workflow
 
 > ⚠️ ChatGPT 无法直接运行脚本或编辑本地文件。Skill 会引导你手动运行脚本并将结果粘贴回对话。
 
-### 4.3 OpenAI Codex CLI
+### 4.3 兼容性分级
 
-```bash
-mkdir -p ~/.codex/skills/research-paper-workflow
-cp -r SKILL.md references/ assets/ scripts/ agents/ examples/ ~/.codex/skills/research-paper-workflow/
-```
+| 级别 | 平台 | 说明 |
+|---|---|---|
+| ✅ 已测试 | Claude Code（手动安装） | 方式 B/C/D 已验证可用 |
+| ✅ 已测试 | GitHub 本地使用 | 直接作为项目 skill 目录加载 |
+| 🟡 大概率兼容 | ChatGPT Custom GPT | 上传 SKILL.md + references 作为知识库 |
+| 🔬 实验性 | OpenAI Codex CLI | Agent Skills 开放标准，需验证 |
+| 🔬 实验性 | Cursor / Windsurf / Gemini CLI / GitHub Copilot | 理论上支持 Agent Skills 标准目录结构 |
+| ❓ 未知 | Claude Code 插件市场 | `/plugin marketplace` 命令因版本而异 |
 
-### 4.4 Cursor / Windsurf / 其他 Agent
-
-Agent Skills 格式是开放标准。将 skill 文件夹放入对应 agent 的 skills 目录：
-
-| Agent | Skills 路径 |
-|---|---|
-| Cursor | `~/.cursor/skills/` |
-| Windsurf | `~/.windsurf/skills/` |
-| Gemini CLI | `~/.gemini/skills/` |
-| GitHub Copilot | `~/.copilot/skills/` 或 `.github/skills/` |
-
-所有 agent 会自动发现上述目录中的 skills。安装后重启 agent 即可。
+> 安装方式：将 skill 文件夹复制到对应 agent 的 skills 目录（如 `~/.cursor/skills/`、`~/.windsurf/skills/`），重启 agent 后测试。
 
 ---
 
@@ -299,9 +293,9 @@ Agent Skills 格式是开放标准。将 skill 文件夹放入对应 agent 的 s
 14. rpw-rebuttal           → 审稿回复 + revision ledger
 ```
 
-![Workflow Pipeline](figures/workflow.svg)
+![Workflow Pipeline](figures/workflow.png)
 
-![Artifact Flow](figures/artifact-flow.svg)
+![Artifact Flow](figures/artifact-flow.png)
 
 你不需要每次从第 0 步开始。可以根据已有材料直接跳到任意阶段。
 

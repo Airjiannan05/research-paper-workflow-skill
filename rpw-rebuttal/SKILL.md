@@ -1,10 +1,6 @@
 ---
 name: rpw-rebuttal
 description: "Convert reviewer comments into an issue taxonomy, point-by-point response, revision ledger, and resubmission plan. Use for rebuttal writing, reviewer response, revision planning, 审稿回复, rebuttal写作, revision ledger, 重投计划. Do not write the revised paper directly — that's rpw-paper-writer."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Rebuttal Writer

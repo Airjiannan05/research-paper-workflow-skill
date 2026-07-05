@@ -1,10 +1,6 @@
 ---
 name: rpw-claim-manifest
 description: "Map every major paper claim to its required evidence: citation, result, proof, or design rationale. Produce a claim manifest with type, support, strength, risk, and falsifier. Use for claim design, evidence planning, claim表, 声明与证据映射. Do not design experiments — that's rpw-experiment-design."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Claim Manifest

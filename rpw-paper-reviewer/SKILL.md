@@ -1,10 +1,6 @@
 ---
 name: rpw-paper-reviewer
 description: "Simulate a strict but fair reviewer panel and AC/meta-review. Produce decision-relevant findings with scores, evidence basis, severity, repair actions, and score-impact conditions. Use for paper review, simulated review, acceptance risk, 审稿, 模拟审稿, 论文评分, 写作评审. Do not rewrite the paper — that's rpw-paper-writer."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Paper Reviewer

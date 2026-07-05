@@ -1,10 +1,6 @@
 ---
 name: rpw-paper-writer
 description: "Draft, revise, polish, and compress paper text in LaTeX or Markdown. Produce submission-shaped manuscripts: title, abstract, introduction, related work, method, experiments, analysis, limitations, conclusion. Use for paper writing, polishing, compression, 写论文, 润色, 压缩, 改写, 起草. Do not review or judge the paper — that's rpw-paper-reviewer."
-metadata:
-  rpw_skill_controls:
-    handoff_question_mode: partial
-    shared_controls: ../rpw-common/
 ---
 
 # RPW Paper Writer
