@@ -18,15 +18,31 @@ The Claude Code compatibility layer adds:
 - `examples/`: copyable Claude Code prompts and example artifact flows.
 - `scripts/requirements.txt`: dependency note for bundled scripts.
 
-## Recommended installation for local use
+## Quick install
 
-1. Unzip `skill.zip`.
-2. Copy or keep the `research-paper-workflow/` directory somewhere Claude Code can read.
-3. Open Claude Code in your paper project directory.
-4. Ask Claude Code to read the skill entry point:
+**Clone and symlink** (recommended — easy to update):
+
+```bash
+git clone https://github.com/Airjiannan05/research-paper-workflow-skill.git ~/research-paper-workflow-skill
+ln -s ~/research-paper-workflow-skill ~/.claude/skills/research-paper-workflow
+```
+
+**Manual copy — project-local** (only this project):
+
+```bash
+git clone https://github.com/Airjiannan05/research-paper-workflow-skill.git
+mkdir -p .claude/skills/research-paper-workflow
+cp -r research-paper-workflow-skill/SKILL.md research-paper-workflow-skill/CLAUDE.md research-paper-workflow-skill/references/ research-paper-workflow-skill/assets/ research-paper-workflow-skill/scripts/ .claude/skills/research-paper-workflow/
+```
+
+Restart Claude Code after installation. Verify with: `/list-skills` or ask *"What skills are available?"*
+
+## How to use
+
+Open Claude Code in your paper project directory, then just describe your task in natural language — the skill triggers automatically:
 
 ```text
-Read /path/to/research-paper-workflow/SKILL.md and /path/to/research-paper-workflow/CLAUDE.md. Use this workflow to manage my paper project.
+Use research-paper-workflow. Initialize a paper_state.yaml for a top-conference CS/AI paper. Start with pipeline + idea-optimize. End with next-step options.
 ```
 
 For a project-local setup, you can also copy `CLAUDE.md` into your paper repository root and keep the full skill folder under `skills/research-paper-workflow/`.
@@ -78,7 +94,7 @@ Use integrity-audit mode. For each load-bearing claim, check claim support, cita
 | Mode | Use when | Main outputs |
 |---|---|---|
 | `pipeline` | You need the full project route | stage plan, artifact contract, next owner |
-| `idea-optimize` | Idea is vague or weak | research brief, falsifiable claim, novelty threats |
+| `idea-optimize` | Idea is vague or weak | idea brief, falsifiable claim, novelty threats |
 | `idea-review` | You need a strict go/no-go assessment | novelty/insight/feasibility diagnosis |
 | `literature-search` | You need prior art, benchmark, baseline evidence | paper cards, taxonomy, source verification log |
 | `experiment-design` | You need experiments that test claims | claim-to-test map, baselines, ablations, table shells |

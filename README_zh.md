@@ -1,4 +1,9 @@
-# Research Paper Workflow Skill 使用说明（中文）
+# Research Paper Workflow Skill
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-orange)](https://claude.ai/code)
+[![OpenAI GPT](https://img.shields.io/badge/ChatGPT-Custom%20GPT-green)](https://chatgpt.com)
+[![Cursor](https://img.shields.io/badge/Cursor-Compatible-purple)](https://cursor.com)
 
 `research-paper-workflow` 是一个面向 CS / AI / AI4Science / 机器学习 / Agent / 系统方向论文的全流程科研工作流 Skill。它的目标不是“一次性帮你生成一篇论文”，而是把一篇顶会论文拆成可推进、可检查、可回滚的阶段：从 idea、文献、claim、实验设计，到实验工程实现、结果聚合、论文写作、审稿模拟、完整性审计、投稿检查和 rebuttal。
 
@@ -51,11 +56,12 @@
 
 ```text
 research-paper-workflow/
+├── README.md          ← GitHub 首页展示（英文）
+├── README_en.md
+├── README_zh.md
 ├── SKILL.md
 ├── CLAUDE.md
 ├── README_claude_code.md
-├── README_en.md
-├── README_zh.md
 ├── LICENSE
 ├── .gitignore
 ├── agents/
@@ -121,10 +127,15 @@ research-paper-workflow/
 
 ### 4.1 Claude Code（推荐）
 
+**方式 0：直接叫claude安装**
+```bash
+直接帮我安装这个skill: https://github.com/Airjiannan05/research-paper-workflow-skill.git
+```
+
 **方式 A：插件市场安装**
 ```bash
 # 在 Claude Code 中注册本仓库为 marketplace
-/plugin marketplace add <your-username>/research-paper-workflow
+/plugin marketplace add Airjiannan05/research-paper-workflow-skill
 
 # 安装
 /plugin install research-paper-workflow@research-paper-workflow
@@ -144,8 +155,8 @@ cp -r SKILL.md CLAUDE.md references/ assets/ scripts/ agents/ examples/ ~/.claud
 
 **方式 D：Git clone + 软链接**（方便后续更新）
 ```bash
-git clone https://github.com/<your-username>/research-paper-workflow.git ~/research-paper-workflow
-ln -s ~/research-paper-workflow ~/.claude/skills/research-paper-workflow
+git clone https://github.com/Airjiannan05/research-paper-workflow-skill.git ~/research-paper-workflow-skill
+ln -s ~/research-paper-workflow-skill ~/.claude/skills/research-paper-workflow
 ```
 
 安装完成后重启 Claude Code，验证：
