@@ -70,6 +70,8 @@ research-paper-workflow/
 ├── .gitignore
 ├── figures/
 │   └── Workflow-Core.png
+├── docs/
+│   └── ARCHITECTURE.md
 ├── .claude-plugin/
 │   └── plugin.json
 ├── .codex-plugin/
@@ -240,6 +242,28 @@ Agent Skills 格式是开放标准。将 skill 文件夹放入对应 agent 的 s
 ---
 
 ## 6. 模块功能说明
+
+### 触发边界
+
+相似的任务必须进入不同的模式，避免同时触发多个 skill。
+
+| 你要做的事 | 使用 | 不要使用 |
+|---|---|---|
+| 把模糊 idea 变成可做的研究方案、找救援路线 | `idea-optimize` | `idea-review` |
+| 对多个 idea 打分、排序、取舍 | `idea-review` | `idea-optimize` |
+| 追踪新论文、竞品、arXiv/OpenReview 动态 | `literature-monitor` | `literature-search` |
+| 系统性搜索 related work、benchmark、baseline | `literature-search` | `integrity-audit` |
+| 核验论文里已引用的文献是否真的支持 claim | `integrity-audit` | `literature-search` |
+| 设计实验、baseline、metric、消融 | `experiment-design` | `paper-writer` |
+| 把实验设计落地为代码工程、config、run matrix | `experiment-implementation` | `experiment-design` |
+| 验证实验日志、聚合多 seed 结果、生成表格 | `result-engineering` | `paper-writer` |
+| 把真实结果解释为 claim 支持情况 | `result-analysis` | `paper-writer` |
+| 写正文、润色、压缩、保持原格式改写 | `paper-writer` | `paper-reviewer` |
+| 判断论文能否被接收、哪里会被拒 | `paper-reviewer` | `paper-writer` |
+| 检查 claim/引用/数字/图表一致性 | `integrity-audit` | `paper-reviewer` |
+| 检查页数、匿名、PDF metadata、artifact | `submission-check` | `paper-writer` |
+| 回复审稿人、维护 revision ledger | `rebuttal` | `paper-reviewer` |
+| 拆任务、排阶段、设 gate | `pipeline` | 任何单一 owner |
 
 ### `pipeline`
 

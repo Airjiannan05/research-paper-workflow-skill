@@ -70,6 +70,8 @@ research-paper-workflow/
 ├── .gitignore
 ├── figures/
 │   └── Workflow-Core.png
+├── docs/
+│   └── ARCHITECTURE.md
 ├── .claude-plugin/
 │   └── plugin.json
 ├── .codex-plugin/
@@ -235,6 +237,28 @@ You do not need to start from Stage 0 every time. If you already have a draft, e
 ---
 
 ## 6. Mode guide
+
+### Trigger Boundaries
+
+Similar tasks must route to different modes. This is the most important governance rule: avoid one request triggering multiple skills.
+
+| You want to | Use | Do NOT use |
+|---|---|---|
+| Shape a vague idea into a research plan, find rescue routes | `idea-optimize` | `idea-review` |
+| Score, rank, or select among multiple ideas | `idea-review` | `idea-optimize` |
+| Track new papers, competitors, arXiv/OpenReview updates | `literature-monitor` | `literature-search` |
+| Search for related work, benchmarks, baselines, open gaps | `literature-search` | `integrity-audit` |
+| Verify that already-cited sources truly support claims | `integrity-audit` | `literature-search` |
+| Design experiments, baselines, metrics, ablations | `experiment-design` | `paper-writer` |
+| Turn experiment plan into code, configs, run matrix | `experiment-implementation` | `experiment-design` |
+| Validate logs, aggregate seeds, generate tables | `result-engineering` | `paper-writer` |
+| Interpret real results into supported claims | `result-analysis` | `paper-writer` |
+| Draft, polish, compress, or rewrite paper text | `paper-writer` | `paper-reviewer` |
+| Judge acceptance risk, simulate reviews | `paper-reviewer` | `paper-writer` |
+| Check claim/citation/number/figure consistency | `integrity-audit` | `paper-reviewer` |
+| Check page limits, anonymity, PDF metadata, artifacts | `submission-check` | `paper-writer` |
+| Respond to reviewers, maintain revision ledger | `rebuttal` | `paper-reviewer` |
+| Break down a project into stages with gates | `pipeline` | any single owner mode |
 
 ### `pipeline`
 
