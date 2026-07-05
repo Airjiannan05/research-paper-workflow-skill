@@ -63,9 +63,17 @@ research-paper-workflow/
 ├── README_en.md        ← 英文版本
 ├── SKILL.md
 ├── CLAUDE.md
+├── AGENT_GUIDE.md
+├── CHANGELOG.md
 ├── README_claude_code.md
 ├── LICENSE
 ├── .gitignore
+├── figures/
+│   └── Workflow-Core.png
+├── .claude-plugin/
+│   └── plugin.json
+├── .codex-plugin/
+│   └── plugin.json
 ├── agents/
 │   └── openai.yaml
 ├── examples/
@@ -224,6 +232,8 @@ Agent Skills 格式是开放标准。将 skill 文件夹放入对应 agent 的 s
 → 13. submission-check
 → 14. rebuttal / revision / resubmission
 ```
+
+![Workflow Core](figures/Workflow-Core.png)
 
 你不需要每次从第 0 步开始。可以根据已有材料直接跳到任意阶段。
 

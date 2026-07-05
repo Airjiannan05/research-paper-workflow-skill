@@ -1,0 +1,30 @@
+{
+  "name": "research-paper-workflow",
+  "version": "1.0.0",
+  "description": "End-to-end research paper workflow for CS, AI, AI4Science papers — from idea to submission. 14-stage pipeline: idea optimization, literature search, experiment design, implementation, result engineering, paper writing, review, integrity audit, submission check, and rebuttal.",
+  "author": {
+    "name": "Airjiannan05"
+  },
+  "homepage": "https://github.com/Airjiannan05/research-paper-workflow-skill",
+  "repository": "https://github.com/Airjiannan05/research-paper-workflow-skill",
+  "license": "MIT",
+  "keywords": [
+    "research",
+    "paper",
+    "writing",
+    "academic",
+    "workflow",
+    "ccf",
+    "neurips",
+    "iclr",
+    "aaai",
+    "cvpr",
+    "acm",
+    "science"
+  ],
+  "skills_root": ".",
+  "catalog": "SKILL.md",
+  "entrypoints": [
+    "research-paper-workflow"
+  ]
+}

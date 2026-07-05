@@ -1,0 +1,36 @@
+{
+  "name": "research-paper-workflow",
+  "version": "1.0.0",
+  "description": "End-to-end research paper workflow for CS, AI, AI4Science papers — from idea to submission.",
+  "author": {
+    "name": "Airjiannan05"
+  },
+  "homepage": "https://github.com/Airjiannan05/research-paper-workflow-skill",
+  "repository": "https://github.com/Airjiannan05/research-paper-workflow-skill",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "skills",
+    "research",
+    "paper",
+    "writing",
+    "academic",
+    "workflow"
+  ],
+  "interface": {
+    "displayName": "Research Paper Workflow",
+    "shortDescription": "End-to-end CS/AI research paper workflow from idea to submission.",
+    "longDescription": "A 14-stage research engineering skill for CS, AI, and AI4Science paper projects: idea optimization, idea review, literature search, related-work matrix, claim manifest, experiment design, experiment implementation, result engineering, result analysis, venue-aware writing, peer review, integrity audit, submission check, and rebuttal. Includes triple-check source verification, next-step navigation, Python utility scripts, and reusable templates.",
+    "developerName": "Airjiannan05",
+    "category": "Productivity",
+    "capabilities": [
+      "skills",
+      "research-workflow",
+      "paper-writing",
+      "literature-search",
+      "experiment-design"
+    ],
+    "brandColor": "#4F46E5",
+    "defaultPrompt": "Use research-paper-workflow to manage this paper project. Respect mode boundaries, source verification requirements, and next-step menu gates."
+  }
+}

@@ -63,9 +63,17 @@ research-paper-workflow/
 ├── README_en.md        ← English version (this file)
 ├── SKILL.md
 ├── CLAUDE.md
+├── AGENT_GUIDE.md
+├── CHANGELOG.md
 ├── README_claude_code.md
 ├── LICENSE
 ├── .gitignore
+├── figures/
+│   └── Workflow-Core.png
+├── .claude-plugin/
+│   └── plugin.json
+├── .codex-plugin/
+│   └── plugin.json
 ├── agents/
 │   └── openai.yaml
 ├── examples/
@@ -219,6 +227,8 @@ All agents auto-discover skills from these directories. Restart the agent after 
 → 13. submission-check
 → 14. rebuttal / revision / resubmission
 ```
+
+![Workflow Core](figures/Workflow-Core.png)
 
 You do not need to start from Stage 0 every time. If you already have a draft, experiment plan, result logs, or reviewer comments, you can jump directly to the relevant mode.
 

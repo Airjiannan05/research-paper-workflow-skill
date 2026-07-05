@@ -26,6 +26,7 @@ Then identify the workflow mode from the user's request:
 - `pipeline`: initialize or route the whole project.
 - `idea-optimize`: turn a vague direction into a falsifiable research story.
 - `idea-review`: pressure-test novelty, insight, feasibility, and venue fit.
+- `literature-monitor`: track recent competitors, scoop risk, arXiv/OpenReview updates.
 - `literature-search`: build paper cards, related-work matrix, source verification log.
 - `experiment-design`: map claims to datasets, baselines, metrics, ablations, and result-table shells.
 - `experiment-implementation`: create repo layout, config schema, run matrix, commands, logging schema, acceptance tests.
