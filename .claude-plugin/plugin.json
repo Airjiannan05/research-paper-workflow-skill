@@ -25,6 +25,21 @@
   "skills_root": ".",
   "catalog": "SKILL.md",
   "entrypoints": [
+    "rpw-pipeline",
+    "rpw-idea-optimize",
+    "rpw-idea-review",
+    "rpw-literature-monitor",
+    "rpw-literature-search",
+    "rpw-claim-manifest",
+    "rpw-experiment-design",
+    "rpw-experiment-implementation",
+    "rpw-result-engineering",
+    "rpw-result-analysis",
+    "rpw-paper-writer",
+    "rpw-paper-reviewer",
+    "rpw-integrity-audit",
+    "rpw-submission-check",
+    "rpw-rebuttal",
     "research-paper-workflow"
   ]
 }

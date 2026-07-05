@@ -58,77 +58,101 @@
 
 ```text
 research-paper-workflow/
-├── README.md          ← GitHub 首页展示（中文）
-├── README_zh.md
-├── README_en.md        ← 英文版本
-├── SKILL.md
-├── CLAUDE.md
-├── AGENT_GUIDE.md
-├── CHANGELOG.md
-├── README_claude_code.md
-├── LICENSE
-├── .gitignore
+├── README.md                          ← GitHub 首页展示（中文），含完整使用文档
+├── README_zh.md                       ← 中文版 README
+├── README_en.md                       ← 英文版 README
+├── SKILL.md                           ← 16 个 skill 的索引与路由入口
+│
+├── rpw-common/SKILL.md                ← 共享治理：路由规则、来源验证、产物归属、状态管理
+├── rpw-pipeline/SKILL.md              ← 项目搭建：初始化 ccfa.yaml、拆阶段、设 gate
+├── rpw-idea-optimize/SKILL.md         ← idea 优化：模糊方向 → 可证伪研究故事
+├── rpw-idea-review/SKILL.md           ← idea 评审：严格打分 novelty/可行性/venue fit
+├── rpw-literature-monitor/SKILL.md    ← 文献监控：竞品追踪、scoop 预警、arXiv 动态
+├── rpw-literature-search/SKILL.md     ← 文献检索：系统搜索 related work + 机制矩阵 + gap 分析
+├── rpw-claim-manifest/SKILL.md        ← claim 设计：每个 claim → 所需证据映射
+├── rpw-experiment-design/SKILL.md     ← 实验设计：baseline、metric、消融、鲁棒性、统计
+├── rpw-experiment-implementation/SKILL.md ← 实验实现：仓库结构、config、run matrix、日志
+├── rpw-result-engineering/SKILL.md    ← 结果工程：日志验证、多 seed 聚合、LaTeX 表格生成
+├── rpw-result-analysis/SKILL.md       ← 结果分析：实验结果 → claim 支持判断 + 局限性
+├── rpw-paper-writer/SKILL.md          ← 论文写作：起草、润色、压缩、保留原始格式
+├── rpw-paper-reviewer/SKILL.md        ← 审稿模拟：多 reviewer 面板 + AC/meta-review
+├── rpw-integrity-audit/SKILL.md       ← 完整性审计：claim/引用/数字/图表一致性检查
+├── rpw-submission-check/SKILL.md      ← 投稿检查：页数、匿名、PDF 元数据、artifact
+├── rpw-rebuttal/SKILL.md              ← rebuttal：逐条回复、revision ledger、重投策略
+│
+├── CLAUDE.md                          ← Claude Code 本地执行约定与脚本用法
+├── AGENT_GUIDE.md                     ← AI agent 路由指南（模式路由表、产物归属、gate 行为）
+├── CHANGELOG.md                       ← 版本变更历史
+├── README_claude_code.md              ← Claude Code 用户快速入门
+├── LICENSE                            ← MIT 开源协议
+├── .gitignore                         ← 忽略 Python 缓存、系统垃圾、用户论文产物
+│
 ├── figures/
-│   └── Workflow-Core.png
+│   └── Workflow-Core.png              ← 14 阶段完整工作流可视化图
 ├── docs/
-│   └── ARCHITECTURE.md
+│   └── ARCHITECTURE.md                ← 架构设计文档：分层图、数据流、gate 系统、扩展点
+│
 ├── .claude-plugin/
-│   └── plugin.json
+│   └── plugin.json                    ← Claude Code 一键安装配置
 ├── .codex-plugin/
-│   └── plugin.json
+│   └── plugin.json                    ← OpenAI Codex CLI 一键安装配置
 ├── agents/
-│   └── openai.yaml
+│   └── openai.yaml                    ← ChatGPT Custom GPT 接口元数据
+│
 ├── examples/
-│   ├── artifact_flow.md
-│   ├── claude_code_prompts.md
-│   └── local_project_layout.md
-├── references/
-│   ├── workflow.md
-│   ├── literature-review.md
-│   ├── experiment-design.md
-│   ├── experiment-implementation.md
-│   ├── research-engineering.md
-│   ├── result-logging.md
-│   ├── reproducibility-passport.md
-│   ├── writing-guide.md
-│   ├── review-rubric.md
-│   ├── routing-and-artifacts.md
-│   ├── storyline-blueprint.md
-│   ├── venue-writing.md
-│   ├── section-modules.md
-│   ├── citation-integrity.md
-│   ├── rebuttal-revision.md
-│   ├── source-verification.md
-│   └── next-step-menu.md
-├── assets/
-│   ├── idea_brief_template.md
-│   ├── paper_card_template.md
-│   ├── related_work_matrix_template.md
-│   ├── claim_manifest_template.md
-│   ├── experiment_plan_template.md
-│   ├── implementation_plan_template.md
-│   ├── run_matrix_template.csv
-│   ├── config_schema_template.yaml
-│   ├── logging_schema_template.json
-│   ├── repo_structure_template.md
-│   ├── baseline_checklist_template.md
-│   ├── reproducibility_passport_template.md
-│   ├── paper_state_template.yaml
-│   ├── reviewer_report_template.md
-│   ├── revision_ledger_template.md
-│   ├── source_verification_log_template.md
-│   └── submission_checklist_template.md
-└── scripts/
-    ├── build_paper_matrix.py
-    ├── check_claim_manifest.py
-    ├── validate_paper_state.py
-    ├── build_revision_ledger.py
-    ├── generate_run_matrix.py
-    ├── validate_result_logs.py
-    ├── aggregate_results.py
-    ├── make_latex_tables.py
-    ├── check_source_verification_log.py
-    └── requirements.txt
+│   ├── artifact_flow.md               ← 产物流转关系图（16 个 artifact 的依赖链）
+│   ├── claude_code_prompts.md          ← Claude Code 常用 prompt 示例
+│   └── local_project_layout.md        ← 推荐的用户论文项目目录结构
+│
+├── references/                        ← 共享参考文件（各 skill 按需加载）
+│   ├── workflow.md                    ← 完整阶段 gate 定义
+│   ├── literature-review.md           ← 文献检索策略与 paper card 格式
+│   ├── experiment-design.md           ← CS/AI 实验设计协议（baseline/消融/统计）
+│   ├── experiment-implementation.md   ← 实验工程实现模式
+│   ├── research-engineering.md        ← 研究工程最佳实践
+│   ├── result-logging.md              ← 结果日志规范与验证规则
+│   ├── reproducibility-passport.md    ← 可复现性护照（环境/数据/代码/结果）
+│   ├── writing-guide.md               ← 论文写作规范与约定
+│   ├── review-rubric.md               ← 审稿评分标准与维度
+│   ├── routing-and-artifacts.md       ← skill 路由规则与产物归属合约
+│   ├── storyline-blueprint.md         ← 研究故事线框架（problem→gap→insight→method）
+│   ├── venue-writing.md               ← 会议特化写作（NeurIPS/ICLR/AAAI 等）
+│   ├── section-modules.md             ← 论文章节模块化指南
+│   ├── citation-integrity.md          ← 引用完整性审计协议
+│   ├── rebuttal-revision.md           ← rebuttal 策略与 revision 工作流
+│   ├── source-verification.md         ← 三重来源验证协议（存在/元数据/支撑）
+│   └── next-step-menu.md              ← 下一步菜单合约（推荐/修复/快捷命令）
+│
+├── assets/                            ← 共享模板（创建新产物时使用）
+│   ├── idea_brief_template.md         ← idea brief 模板
+│   ├── paper_card_template.md         ← 文献卡片模板
+│   ├── related_work_matrix_template.md ← 相关工作矩阵模板
+│   ├── claim_manifest_template.md     ← claim 清单模板
+│   ├── experiment_plan_template.md    ← 实验计划模板
+│   ├── implementation_plan_template.md ← 实现计划模板
+│   ├── run_matrix_template.csv        ← 运行矩阵模板
+│   ├── config_schema_template.yaml    ← 配置文件模板
+│   ├── logging_schema_template.json   ← 日志 schema 模板
+│   ├── repo_structure_template.md     ← 仓库结构模板
+│   ├── baseline_checklist_template.md ← 基线实现清单模板
+│   ├── reproducibility_passport_template.md ← 可复现护照模板
+│   ├── paper_state_template.yaml      ← 项目状态文件模板
+│   ├── reviewer_report_template.md    ← 审稿报告模板
+│   ├── revision_ledger_template.md    ← 修订台账模板
+│   ├── source_verification_log_template.md ← 来源验证日志模板
+│   └── submission_checklist_template.md ← 投稿检查清单模板
+│
+└── scripts/                           ← 共享工具脚本（Python 标准库，零依赖）
+    ├── build_paper_matrix.py          ← 从 paper cards 生成 related-work 矩阵
+    ├── check_claim_manifest.py        ← 验证 claim manifest 完整性
+    ├── validate_paper_state.py        ← 验证 ccfa.yaml 字段与一致性
+    ├── build_revision_ledger.py       ← 从 reviewer 评论生成 revision ledger
+    ├── generate_run_matrix.py         ← 展开实验轴为可复现 run matrix
+    ├── validate_result_logs.py        ← 检查日志字段/重复 run/缺失 seed/失败 run
+    ├── aggregate_results.py           ← 多 seed 聚合为 mean/std/count 表
+    ├── make_latex_tables.py           ← CSV 结果转 LaTeX 表格
+    ├── check_source_verification_log.py ← 结构验证来源日志（三次检查完整性）
+    └── requirements.txt               ← 依赖说明（纯标准库，无需 pip install）
 ```
 
 ---
@@ -218,21 +242,21 @@ Agent Skills 格式是开放标准。将 skill 文件夹放入对应 agent 的 s
 ## 5. 完整工作流
 
 ```text
-0. project scaffold
-→ 1. idea-optimize
-→ 2. idea-review
-→ 3. literature-monitor / literature-search
-→ 4. related-work matrix
-→ 5. claim-manifest
-→ 6. experiment-design
-→ 7. experiment-implementation
-→ 8. result-engineering
-→ 9. result-analysis
-→ 10. paper-writer
-→ 11. paper-reviewer
-→ 12. integrity-audit
-→ 13. submission-check
-→ 14. rebuttal / revision / resubmission
+0. rpw-pipeline           → 项目搭建 + 阶段规划
+1. rpw-idea-optimize      → idea → 可证伪研究故事
+2. rpw-idea-review        → 严格 novelty/可行性 评分
+3. rpw-literature-monitor → 竞品/ scoop 追踪
+4. rpw-literature-search  → 系统性 related-work + matrix
+5. rpw-claim-manifest     → claim → 证据映射
+6. rpw-experiment-design  → baseline、metric、消融
+7. rpw-experiment-implementation → 代码、config、run matrix
+8. rpw-result-engineering → 日志验证、聚合、表格
+9. rpw-result-analysis    → 结果 → claim 支持判断
+10. rpw-paper-writer       → 起草、润色、压缩
+11. rpw-paper-reviewer     → 模拟审稿 + AC
+12. rpw-integrity-audit    → claim/引用/数字一致性
+13. rpw-submission-check   → 投稿合规检查
+14. rpw-rebuttal           → 审稿回复 + revision ledger
 ```
 
 ![Workflow Core](figures/Workflow-Core.png)
@@ -249,21 +273,22 @@ Agent Skills 格式是开放标准。将 skill 文件夹放入对应 agent 的 s
 
 | 你要做的事 | 使用 | 不要使用 |
 |---|---|---|
-| 把模糊 idea 变成可做的研究方案、找救援路线 | `idea-optimize` | `idea-review` |
-| 对多个 idea 打分、排序、取舍 | `idea-review` | `idea-optimize` |
-| 追踪新论文、竞品、arXiv/OpenReview 动态 | `literature-monitor` | `literature-search` |
-| 系统性搜索 related work、benchmark、baseline | `literature-search` | `integrity-audit` |
-| 核验论文里已引用的文献是否真的支持 claim | `integrity-audit` | `literature-search` |
-| 设计实验、baseline、metric、消融 | `experiment-design` | `paper-writer` |
-| 把实验设计落地为代码工程、config、run matrix | `experiment-implementation` | `experiment-design` |
-| 验证实验日志、聚合多 seed 结果、生成表格 | `result-engineering` | `paper-writer` |
-| 把真实结果解释为 claim 支持情况 | `result-analysis` | `paper-writer` |
-| 写正文、润色、压缩、保持原格式改写 | `paper-writer` | `paper-reviewer` |
-| 判断论文能否被接收、哪里会被拒 | `paper-reviewer` | `paper-writer` |
-| 检查 claim/引用/数字/图表一致性 | `integrity-audit` | `paper-reviewer` |
-| 检查页数、匿名、PDF metadata、artifact | `submission-check` | `paper-writer` |
-| 回复审稿人、维护 revision ledger | `rebuttal` | `paper-reviewer` |
-| 拆任务、排阶段、设 gate | `pipeline` | 任何单一 owner |
+| 把模糊 idea 变成可做的研究方案、找救援路线 | `rpw-idea-optimize` | `rpw-idea-review` |
+| 对多个 idea 打分、排序、取舍 | `rpw-idea-review` | `rpw-idea-optimize` |
+| 追踪新论文、竞品、arXiv/OpenReview 动态 | `rpw-literature-monitor` | `rpw-literature-search` |
+| 系统性搜索 related work、benchmark、baseline | `rpw-literature-search` | `rpw-integrity-audit` |
+| 把 claim 映射到所需证据 | `rpw-claim-manifest` | `rpw-experiment-design` |
+| 核验论文里已引用的文献是否真的支持 claim | `rpw-integrity-audit` | `rpw-literature-search` |
+| 设计实验、baseline、metric、消融 | `rpw-experiment-design` | `rpw-paper-writer` |
+| 把实验设计落地为代码工程、config、run matrix | `rpw-experiment-implementation` | `rpw-experiment-design` |
+| 验证实验日志、聚合多 seed 结果、生成表格 | `rpw-result-engineering` | `rpw-paper-writer` |
+| 把真实结果解释为 claim 支持情况 | `rpw-result-analysis` | `rpw-paper-writer` |
+| 写正文、润色、压缩、保持原格式改写 | `rpw-paper-writer` | `rpw-paper-reviewer` |
+| 判断论文能否被接收、哪里会被拒 | `rpw-paper-reviewer` | `rpw-paper-writer` |
+| 检查 claim/引用/数字/图表一致性 | `rpw-integrity-audit` | `rpw-paper-reviewer` |
+| 检查页数、匿名、PDF metadata、artifact | `rpw-submission-check` | `rpw-paper-writer` |
+| 回复审稿人、维护 revision ledger | `rpw-rebuttal` | `rpw-paper-reviewer` |
+| 拆任务、排阶段、设 gate | `rpw-pipeline` | 任何单一 owner |
 
 ### `pipeline`
 

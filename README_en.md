@@ -58,77 +58,101 @@ This Skill separates these concerns into explicit stages and gives a next-step m
 
 ```text
 research-paper-workflow/
-├── README.md          ← GitHub entry point (Chinese)
-├── README_zh.md
-├── README_en.md        ← English version (this file)
-├── SKILL.md
-├── CLAUDE.md
-├── AGENT_GUIDE.md
-├── CHANGELOG.md
-├── README_claude_code.md
-├── LICENSE
-├── .gitignore
+├── README.md                          ← GitHub entry point (Chinese), full documentation
+├── README_zh.md                       ← Chinese README
+├── README_en.md                       ← English README (this file)
+├── SKILL.md                           ← index and router for all 16 skills
+│
+├── rpw-common/SKILL.md                ← shared governance: routing, verification, artifacts, state
+├── rpw-pipeline/SKILL.md              ← project scaffold: init ccfa.yaml, plan stages, set gates
+├── rpw-idea-optimize/SKILL.md         ← idea optimization: vague → falsifiable research story
+├── rpw-idea-review/SKILL.md           ← idea review: strict scoring of novelty/feasibility/venue fit
+├── rpw-literature-monitor/SKILL.md    ← literature monitor: competitor tracking, scoop alerts
+├── rpw-literature-search/SKILL.md     ← literature search: systematic review + mechanism matrix + gaps
+├── rpw-claim-manifest/SKILL.md        ← claim design: map each claim → required evidence
+├── rpw-experiment-design/SKILL.md     ← experiment design: baselines, metrics, ablations, statistics
+├── rpw-experiment-implementation/SKILL.md ← implementation: repo layout, configs, run matrix, logging
+├── rpw-result-engineering/SKILL.md    ← result engineering: log validation, aggregation, LaTeX tables
+├── rpw-result-analysis/SKILL.md       ← result analysis: results → claim support + limitations
+├── rpw-paper-writer/SKILL.md          ← paper writer: draft, polish, compress, preserve format
+├── rpw-paper-reviewer/SKILL.md        ← paper reviewer: multi-reviewer panel + AC/meta-review
+├── rpw-integrity-audit/SKILL.md       ← integrity audit: claim/citation/number/figure consistency
+├── rpw-submission-check/SKILL.md      ← submission check: pages, anonymity, PDF metadata, artifacts
+├── rpw-rebuttal/SKILL.md              ← rebuttal: point-by-point response, revision ledger, resubmission
+│
+├── CLAUDE.md                          ← Claude Code local execution conventions + script usage
+├── AGENT_GUIDE.md                     ← AI agent routing guide (mode table, artifacts, gates, shortcuts)
+├── CHANGELOG.md                       ← version history
+├── README_claude_code.md              ← Claude Code quick-start guide
+├── LICENSE                            ← MIT license
+├── .gitignore                         ← ignores Python cache, OS junk, user paper artifacts
+│
 ├── figures/
-│   └── Workflow-Core.png
+│   └── Workflow-Core.png              ← 14-stage workflow visualization
 ├── docs/
-│   └── ARCHITECTURE.md
+│   └── ARCHITECTURE.md                ← architecture: layers, data flow, gate system, extension points
+│
 ├── .claude-plugin/
-│   └── plugin.json
+│   └── plugin.json                    ← Claude Code one-click install manifest
 ├── .codex-plugin/
-│   └── plugin.json
+│   └── plugin.json                    ← OpenAI Codex CLI one-click install manifest
 ├── agents/
-│   └── openai.yaml
+│   └── openai.yaml                    ← ChatGPT Custom GPT interface metadata
+│
 ├── examples/
-│   ├── artifact_flow.md
-│   ├── claude_code_prompts.md
-│   └── local_project_layout.md
-├── references/
-│   ├── workflow.md
-│   ├── literature-review.md
-│   ├── experiment-design.md
-│   ├── experiment-implementation.md
-│   ├── research-engineering.md
-│   ├── result-logging.md
-│   ├── reproducibility-passport.md
-│   ├── writing-guide.md
-│   ├── review-rubric.md
-│   ├── routing-and-artifacts.md
-│   ├── storyline-blueprint.md
-│   ├── venue-writing.md
-│   ├── section-modules.md
-│   ├── citation-integrity.md
-│   ├── rebuttal-revision.md
-│   ├── source-verification.md
-│   └── next-step-menu.md
-├── assets/
-│   ├── idea_brief_template.md
-│   ├── paper_card_template.md
-│   ├── related_work_matrix_template.md
-│   ├── claim_manifest_template.md
-│   ├── experiment_plan_template.md
-│   ├── implementation_plan_template.md
-│   ├── run_matrix_template.csv
-│   ├── config_schema_template.yaml
-│   ├── logging_schema_template.json
-│   ├── repo_structure_template.md
-│   ├── baseline_checklist_template.md
-│   ├── reproducibility_passport_template.md
-│   ├── paper_state_template.yaml
-│   ├── reviewer_report_template.md
-│   ├── revision_ledger_template.md
-│   ├── source_verification_log_template.md
-│   └── submission_checklist_template.md
-└── scripts/
-    ├── build_paper_matrix.py
-    ├── check_claim_manifest.py
-    ├── validate_paper_state.py
-    ├── build_revision_ledger.py
-    ├── generate_run_matrix.py
-    ├── validate_result_logs.py
-    ├── aggregate_results.py
-    ├── make_latex_tables.py
-    ├── check_source_verification_log.py
-    └── requirements.txt
+│   ├── artifact_flow.md               ← artifact dependency chain (16 artifacts)
+│   ├── claude_code_prompts.md          ← copyable Claude Code prompts
+│   └── local_project_layout.md        ← recommended user project directory layout
+│
+├── references/                        ← shared reference files (loaded on demand by each skill)
+│   ├── workflow.md                    ← complete stage gate definitions
+│   ├── literature-review.md           ← search strategy + paper card format
+│   ├── experiment-design.md           ← CS/AI experiment protocol (baselines/ablations/statistics)
+│   ├── experiment-implementation.md   ← experiment engineering patterns
+│   ├── research-engineering.md        ← research engineering best practices
+│   ├── result-logging.md              ← result log schema + validation rules
+│   ├── reproducibility-passport.md    ← reproducibility passport (env/data/code/results)
+│   ├── writing-guide.md               ← writing standards and conventions
+│   ├── review-rubric.md               ← review scoring criteria and dimensions
+│   ├── routing-and-artifacts.md       ← skill routing rules + artifact ownership contract
+│   ├── storyline-blueprint.md         ← research storyline framework (problem→gap→insight→method)
+│   ├── venue-writing.md               ← venue-specific writing (NeurIPS/ICLR/AAAI etc.)
+│   ├── section-modules.md             ← section-by-section writing guidance
+│   ├── citation-integrity.md          ← citation integrity audit protocol
+│   ├── rebuttal-revision.md           ← rebuttal strategy + revision workflow
+│   ├── source-verification.md         ← triple-check protocol (existence/metadata/support)
+│   └── next-step-menu.md              ← next-step menu contract (recommended/repair/shortcuts)
+│
+├── assets/                            ← shared templates (used when creating new artifacts)
+│   ├── idea_brief_template.md         ← idea brief template
+│   ├── paper_card_template.md         ← paper card template
+│   ├── related_work_matrix_template.md ← related-work matrix template
+│   ├── claim_manifest_template.md     ← claim manifest template
+│   ├── experiment_plan_template.md    ← experiment plan template
+│   ├── implementation_plan_template.md ← implementation plan template
+│   ├── run_matrix_template.csv        ← run matrix template
+│   ├── config_schema_template.yaml    ← config schema template
+│   ├── logging_schema_template.json   ← logging schema template
+│   ├── repo_structure_template.md     ← repo structure template
+│   ├── baseline_checklist_template.md ← baseline checklist template
+│   ├── reproducibility_passport_template.md ← reproducibility passport template
+│   ├── paper_state_template.yaml      ← project state template
+│   ├── reviewer_report_template.md    ← review report template
+│   ├── revision_ledger_template.md    ← revision ledger template
+│   ├── source_verification_log_template.md ← source verification log template
+│   └── submission_checklist_template.md ← submission checklist template
+│
+└── scripts/                           ← shared utility scripts (Python stdlib, zero dependencies)
+    ├── build_paper_matrix.py          ← paper cards → related-work matrix
+    ├── check_claim_manifest.py        ← validate claim manifest completeness
+    ├── validate_paper_state.py        ← validate ccfa.yaml fields and consistency
+    ├── build_revision_ledger.py       ← reviewer comments → revision ledger
+    ├── generate_run_matrix.py         ← expand experiment axes → reproducible run matrix
+    ├── validate_result_logs.py        ← check log fields/duplicate runs/missing seeds/failures
+    ├── aggregate_results.py           ← multi-seed aggregation → mean/std/count tables
+    ├── make_latex_tables.py           ← CSV results → LaTeX tables
+    ├── check_source_verification_log.py ← validate source log (triple-check completeness)
+    └── requirements.txt               ← dependency note (stdlib only, no pip install needed)
 ```
 
 ---
@@ -213,21 +237,21 @@ All agents auto-discover skills from these directories. Restart the agent after 
 ## 5. Full workflow
 
 ```text
-0. project scaffold
-→ 1. idea-optimize
-→ 2. idea-review
-→ 3. literature-monitor / literature-search
-→ 4. related-work matrix
-→ 5. claim-manifest
-→ 6. experiment-design
-→ 7. experiment-implementation
-→ 8. result-engineering
-→ 9. result-analysis
-→ 10. paper-writer
-→ 11. paper-reviewer
-→ 12. integrity-audit
-→ 13. submission-check
-→ 14. rebuttal / revision / resubmission
+0. rpw-pipeline           → project scaffold + stage plan
+1. rpw-idea-optimize      → idea → falsifiable research story
+2. rpw-idea-review        → strict novelty/feasibility scoring
+3. rpw-literature-monitor → competitor/scoop tracking
+4. rpw-literature-search  → systematic related-work + matrix
+5. rpw-claim-manifest     → claim → evidence mapping
+6. rpw-experiment-design  → baselines, metrics, ablations
+7. rpw-experiment-implementation → code, configs, run matrix
+8. rpw-result-engineering → log validation, aggregation, tables
+9. rpw-result-analysis    → interpret results → claims
+10. rpw-paper-writer       → draft, polish, compress
+11. rpw-paper-reviewer     → simulated reviewer panel + AC
+12. rpw-integrity-audit    → claim/citation/number consistency
+13. rpw-submission-check   → venue compliance
+14. rpw-rebuttal           → reviewer response + revision ledger
 ```
 
 ![Workflow Core](figures/Workflow-Core.png)
@@ -244,21 +268,22 @@ Similar tasks must route to different modes. This is the most important governan
 
 | You want to | Use | Do NOT use |
 |---|---|---|
-| Shape a vague idea into a research plan, find rescue routes | `idea-optimize` | `idea-review` |
-| Score, rank, or select among multiple ideas | `idea-review` | `idea-optimize` |
-| Track new papers, competitors, arXiv/OpenReview updates | `literature-monitor` | `literature-search` |
-| Search for related work, benchmarks, baselines, open gaps | `literature-search` | `integrity-audit` |
-| Verify that already-cited sources truly support claims | `integrity-audit` | `literature-search` |
-| Design experiments, baselines, metrics, ablations | `experiment-design` | `paper-writer` |
-| Turn experiment plan into code, configs, run matrix | `experiment-implementation` | `experiment-design` |
-| Validate logs, aggregate seeds, generate tables | `result-engineering` | `paper-writer` |
-| Interpret real results into supported claims | `result-analysis` | `paper-writer` |
-| Draft, polish, compress, or rewrite paper text | `paper-writer` | `paper-reviewer` |
-| Judge acceptance risk, simulate reviews | `paper-reviewer` | `paper-writer` |
-| Check claim/citation/number/figure consistency | `integrity-audit` | `paper-reviewer` |
-| Check page limits, anonymity, PDF metadata, artifacts | `submission-check` | `paper-writer` |
-| Respond to reviewers, maintain revision ledger | `rebuttal` | `paper-reviewer` |
-| Break down a project into stages with gates | `pipeline` | any single owner mode |
+| Shape a vague idea into a research plan, find rescue routes | `rpw-idea-optimize` | `rpw-idea-review` |
+| Score, rank, or select among multiple ideas | `rpw-idea-review` | `rpw-idea-optimize` |
+| Track new papers, competitors, arXiv/OpenReview updates | `rpw-literature-monitor` | `rpw-literature-search` |
+| Search for related work, benchmarks, baselines, open gaps | `rpw-literature-search` | `rpw-integrity-audit` |
+| Map claims to required evidence | `rpw-claim-manifest` | `rpw-experiment-design` |
+| Verify that already-cited sources truly support claims | `rpw-integrity-audit` | `rpw-literature-search` |
+| Design experiments, baselines, metrics, ablations | `rpw-experiment-design` | `rpw-paper-writer` |
+| Turn experiment plan into code, configs, run matrix | `rpw-experiment-implementation` | `rpw-experiment-design` |
+| Validate logs, aggregate seeds, generate tables | `rpw-result-engineering` | `rpw-paper-writer` |
+| Interpret real results into supported claims | `rpw-result-analysis` | `rpw-paper-writer` |
+| Draft, polish, compress, or rewrite paper text | `rpw-paper-writer` | `rpw-paper-reviewer` |
+| Judge acceptance risk, simulate reviews | `rpw-paper-reviewer` | `rpw-paper-writer` |
+| Check claim/citation/number/figure consistency | `rpw-integrity-audit` | `rpw-paper-reviewer` |
+| Check page limits, anonymity, PDF metadata, artifacts | `rpw-submission-check` | `rpw-paper-writer` |
+| Respond to reviewers, maintain revision ledger | `rpw-rebuttal` | `rpw-paper-reviewer` |
+| Break down a project into stages with gates | `rpw-pipeline` | any single owner |
 
 ### `pipeline`
 

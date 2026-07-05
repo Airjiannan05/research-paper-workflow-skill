@@ -1,5 +1,38 @@
 # Changelog
 
+## v1.1.0 - 2026-07-05
+
+### Added
+- **Multi-skill architecture**: Monolithic `SKILL.md` split into 16 independent `rpw-*` skills. Each skill has its own `SKILL.md` with precise trigger phrases — only the matching skill loads, keeping agent context lean.
+  - `rpw-common` — shared governance (routing, source verification, next-step menus, artifact contracts)
+  - `rpw-pipeline` — project scaffold + stage planning
+  - `rpw-idea-optimize` — idea → falsifiable research story
+  - `rpw-idea-review` — strict novelty/feasibility scoring
+  - `rpw-literature-monitor` — competitor/scoop tracking
+  - `rpw-literature-search` — systematic related-work search + matrix
+  - `rpw-claim-manifest` — claim → evidence mapping
+  - `rpw-experiment-design` — baselines, metrics, ablations
+  - `rpw-experiment-implementation` — code, configs, run matrix
+  - `rpw-result-engineering` — log validation, aggregation, LaTeX tables
+  - `rpw-result-analysis` — interpret results → claims
+  - `rpw-paper-writer` — draft, polish, compress
+  - `rpw-paper-reviewer` — simulated reviewer panel + AC
+  - `rpw-integrity-audit` — claim/citation/number consistency
+  - `rpw-submission-check` — venue compliance
+  - `rpw-rebuttal` — reviewer response + revision ledger
+- **Trigger boundary table** in all three READMEs §6 — 16-row "use X, not Y" routing guide.
+- **docs/ARCHITECTURE.md** — design philosophy, layer diagram, data flow, gate system, extension points.
+- **Visual workflow diagram** (`figures/Workflow-Core.png`) in README §5.
+
+### Changed
+- Root `SKILL.md` is now a lightweight index/router pointing to `rpw-*` skills.
+- `AGENT_GUIDE.md` routing table updated to `rpw-*` skill names.
+- `CLAUDE.md` mode list updated to `rpw-*` names + `rpw-claim-manifest` added.
+- Plugin manifests updated with all 16 entrypoints.
+- README workflow diagrams and trigger boundary tables use `rpw-*` names.
+
+---
+
 ## v1.0.0 - 2026-07-05
 
 ### Added

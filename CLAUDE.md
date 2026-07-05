@@ -21,22 +21,23 @@ pwd
 find . -maxdepth 3 -type f | sort | sed -n '1,120p'
 ```
 
-Then identify the workflow mode from the user's request:
+Then identify the matching `rpw-*` skill from the user's request. Each skill lives in its own directory with a standalone `SKILL.md` — only the matching skill is loaded, keeping context lean.
 
-- `pipeline`: initialize or route the whole project.
-- `idea-optimize`: turn a vague direction into a falsifiable research story.
-- `idea-review`: pressure-test novelty, insight, feasibility, and venue fit.
-- `literature-monitor`: track recent competitors, scoop risk, arXiv/OpenReview updates.
-- `literature-search`: build paper cards, related-work matrix, source verification log.
-- `experiment-design`: map claims to datasets, baselines, metrics, ablations, and result-table shells.
-- `experiment-implementation`: create repo layout, config schema, run matrix, commands, logging schema, acceptance tests.
-- `result-engineering`: validate logs, aggregate repeated runs, produce CSV/Markdown/LaTeX tables.
-- `result-analysis`: interpret verified results into supported claims and limitations.
-- `paper-writer`: draft, revise, polish, compress, and preserve LaTeX/Markdown format.
-- `paper-reviewer`: simulate reviewer panel and AC/meta-review.
-- `integrity-audit`: check claim, citation, numeric, result, and source-support consistency.
-- `submission-check`: verify venue-specific rules, anonymity, PDF metadata, artifacts, and AI disclosure.
-- `rebuttal`: build issue taxonomy, revision ledger, and point-by-point response plan.
+- `rpw-pipeline`: initialize or route the whole project.
+- `rpw-idea-optimize`: turn a vague direction into a falsifiable research story.
+- `rpw-idea-review`: pressure-test novelty, insight, feasibility, and venue fit.
+- `rpw-literature-monitor`: track recent competitors, scoop risk, arXiv/OpenReview updates.
+- `rpw-literature-search`: build paper cards, related-work matrix, source verification log.
+- `rpw-claim-manifest`: map every claim to its required evidence.
+- `rpw-experiment-design`: map claims to datasets, baselines, metrics, ablations, and result-table shells.
+- `rpw-experiment-implementation`: create repo layout, config schema, run matrix, commands, logging schema, acceptance tests.
+- `rpw-result-engineering`: validate logs, aggregate repeated runs, produce CSV/Markdown/LaTeX tables.
+- `rpw-result-analysis`: interpret verified results into supported claims and limitations.
+- `rpw-paper-writer`: draft, revise, polish, compress, and preserve LaTeX/Markdown format.
+- `rpw-paper-reviewer`: simulate reviewer panel and AC/meta-review.
+- `rpw-integrity-audit`: check claim, citation, numeric, result, and source-support consistency.
+- `rpw-submission-check`: verify venue-specific rules, anonymity, PDF metadata, artifacts, and AI disclosure.
+- `rpw-rebuttal`: build issue taxonomy, revision ledger, and point-by-point response plan.
 
 ## Recommended project files
 
