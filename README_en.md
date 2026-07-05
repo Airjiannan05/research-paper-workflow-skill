@@ -1,5 +1,7 @@
 # Research Paper Workflow Skill
 
+[中文](README.md) | English (current)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-orange)](https://claude.ai/code)
 [![OpenAI GPT](https://img.shields.io/badge/ChatGPT-Custom%20GPT-green)](https://chatgpt.com)
@@ -56,9 +58,9 @@ This Skill separates these concerns into explicit stages and gives a next-step m
 
 ```text
 research-paper-workflow/
-├── README.md          ← GitHub entry point (English)
-├── README_en.md
+├── README.md          ← GitHub entry point (Chinese)
 ├── README_zh.md
+├── README_en.md        ← English version (this file)
 ├── SKILL.md
 ├── CLAUDE.md
 ├── README_claude_code.md
