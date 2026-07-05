@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-labelledby="title desc">
+  <title id="title">Fourteen stage research paper workflow</title>
+  <desc id="desc">A gate-based workflow from project setup through reviewer response.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f7f8fb}.card{fill:#fff;stroke:#d8dee8;stroke-width:1.35}.lane{fill:#eef2f7;stroke:#d8dee8;stroke-width:1}
+      .title{font:700 27px system-ui,-apple-system,Segoe UI,sans-serif;fill:#172033}.sub{font:500 14px system-ui,-apple-system,Segoe UI,sans-serif;fill:#637083}
+      .h{font:700 14px system-ui,-apple-system,Segoe UI,sans-serif;fill:#253149}.t{font:650 11.5px system-ui,-apple-system,Segoe UI,sans-serif;fill:#253149}
+      .m{font:500 10px system-ui,-apple-system,Segoe UI,sans-serif;fill:#637083}.num{font:800 16px system-ui,-apple-system,Segoe UI,sans-serif;fill:#fff}
+      .gate{font:700 9px system-ui,-apple-system,Segoe UI,sans-serif;fill:#59677c}.line{stroke:#93a0b4;stroke-width:1.7;fill:none}
+      .early{fill:#4078c0}.evidence{fill:#2f8f64}.exec{fill:#bd5279}.write{fill:#6763c3}.review{fill:#bc742d}.final{fill:#8158c9}.gov{fill:#c1912c}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#93a0b4"/>
+    </marker>
+    <filter id="shadow" x="-8%" y="-16%" width="116%" height="132%">
+      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#152033" flood-opacity=".08"/>
+    </filter>
+  </defs>
+
+  <rect class="bg" width="1200" height="600"/>
+  <text class="title" x="58" y="58">14-Stage Research Paper Pipeline</text>
+  <text class="sub" x="58" y="86">Every stage emits an artifact, runs a gate, and offers a next-step menu before handoff.</text>
+
+  <rect class="lane" x="48" y="122" width="206" height="344" rx="14"/>
+  <rect class="lane" x="278" y="122" width="206" height="344" rx="14"/>
+  <rect class="lane" x="508" y="122" width="206" height="344" rx="14"/>
+  <rect class="lane" x="738" y="122" width="206" height="344" rx="14"/>
+  <rect class="lane" x="968" y="122" width="184" height="344" rx="14"/>
+  <text class="h" x="72" y="152">Plan</text>
+  <text class="h" x="302" y="152">Ground</text>
+  <text class="h" x="532" y="152">Execute</text>
+  <text class="h" x="762" y="152">Manuscript</text>
+  <text class="h" x="992" y="152">Publish</text>
+
+  <g transform="translate(70 176)">
+    <g><rect class="card" width="162" height="50" rx="9" filter="url(#shadow)"/><circle class="gov" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">0</text><text class="t" x="50" y="22">Pipeline setup</text><text class="m" x="50" y="38">state, gates, stages</text></g>
+    <g transform="translate(0 68)"><rect class="card" width="162" height="50" rx="9" filter="url(#shadow)"/><circle class="early" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">1</text><text class="t" x="50" y="22">Idea optimize</text><text class="m" x="50" y="38">falsifiable story</text></g>
+    <g transform="translate(0 136)"><rect class="card" width="162" height="50" rx="9" filter="url(#shadow)"/><circle class="early" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">2</text><text class="t" x="50" y="22">Idea review</text><text class="m" x="50" y="38">novelty, venue fit</text></g>
+  </g>
+
+  <g transform="translate(300 176)">
+    <g><rect class="card" width="162" height="50" rx="9" filter="url(#shadow)"/><circle class="early" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">3</text><text class="t" x="50" y="22">Lit. monitor</text><text class="m" x="50" y="38">recent work risk</text></g>
+    <g transform="translate(0 68)"><rect class="card" width="162" height="50" rx="9" filter="url(#shadow)"/><circle class="early" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">4</text><text class="t" x="50" y="22">Lit. search</text><text class="m" x="50" y="38">matrix and gaps</text></g>
+    <g transform="translate(0 136)"><rect class="card" width="162" height="50" rx="9" filter="url(#shadow)"/><circle class="evidence" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">5</text><text class="t" x="50" y="22">Claim manifest</text><text class="m" x="50" y="38">claim to evidence</text></g>
+  </g>
+
+  <g transform="translate(530 176)">
+    <g><rect class="card" width="162" height="50" rx="9" filter="url(#shadow)"/><circle class="evidence" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">6</text><text class="t" x="50" y="22">Exp. design</text><text class="m" x="50" y="38">metrics, ablations</text></g>
+    <g transform="translate(0 68)"><rect class="card" width="162" height="50" rx="9" filter="url(#shadow)"/><circle class="exec" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">7</text><text class="t" x="50" y="22">Implementation</text><text class="m" x="50" y="38">code and config</text></g>
+    <g transform="translate(0 136)"><rect class="card" width="162" height="50" rx="9" filter="url(#shadow)"/><circle class="exec" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">8</text><text class="t" x="50" y="22">Result engineer</text><text class="m" x="50" y="38">logs and tables</text></g>
+    <g transform="translate(0 204)"><rect class="card" width="162" height="50" rx="9" filter="url(#shadow)"/><circle class="exec" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">9</text><text class="t" x="50" y="22">Result analysis</text><text class="m" x="50" y="38">support and limits</text></g>
+  </g>
+
+  <g transform="translate(760 176)">
+    <g><rect class="card" width="162" height="50" rx="9" filter="url(#shadow)"/><circle class="write" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">10</text><text class="t" x="50" y="22">Paper writer</text><text class="m" x="50" y="38">draft and polish</text></g>
+    <g transform="translate(0 68)"><rect class="card" width="162" height="50" rx="9" filter="url(#shadow)"/><circle class="review" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">11</text><text class="t" x="50" y="22">Paper reviewer</text><text class="m" x="50" y="38">reviewer panel</text></g>
+    <g transform="translate(0 136)"><rect class="card" width="162" height="50" rx="9" filter="url(#shadow)"/><circle class="review" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">12</text><text class="t" x="50" y="22">Integrity audit</text><text class="m" x="50" y="38">claims, cites, nums</text></g>
+  </g>
+
+  <g transform="translate(990 176)">
+    <g><rect class="card" width="140" height="50" rx="9" filter="url(#shadow)"/><circle class="final" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">13</text><text class="t" x="50" y="22">Submission</text><text class="m" x="50" y="38">ready check</text></g>
+    <g transform="translate(0 68)"><rect class="card" width="140" height="50" rx="9" filter="url(#shadow)"/><circle class="final" cx="25" cy="25" r="15"/><text class="num" x="25" y="31" text-anchor="middle">14</text><text class="t" x="50" y="22">Rebuttal</text><text class="m" x="50" y="38">response ledger</text></g>
+    <path class="line" d="M70 128 C70 206 -170 206 -170 150" marker-end="url(#arrow)"/>
+  </g>
+  <text class="m" x="908" y="386">revision loop</text>
+
+  <path class="line" d="M232 201 H300" marker-end="url(#arrow)"/>
+  <path class="line" d="M462 337 H530" marker-end="url(#arrow)"/>
+  <path class="line" d="M692 405 H760" marker-end="url(#arrow)"/>
+  <path class="line" d="M922 337 H990" marker-end="url(#arrow)"/>
+
+  <rect class="card" x="70" y="500" width="314" height="48" rx="10"/>
+  <text class="gate" x="92" y="521">GATE RULE</text>
+  <text class="m" x="92" y="539">If evidence or provenance fails, the menu switches to Repair first.</text>
+  <rect class="card" x="444" y="500" width="314" height="48" rx="10"/>
+  <text class="gate" x="466" y="521">NO SHORTCUT</text>
+  <text class="m" x="466" y="539">Writing with placeholders requires explicit user acceptance.</text>
+  <rect class="card" x="818" y="500" width="314" height="48" rx="10"/>
+  <text class="gate" x="840" y="521">HANDOFF</text>
+  <text class="m" x="840" y="539">Each stage owns its artifact; downstream stages read, verify, then extend.</text>
+</svg>

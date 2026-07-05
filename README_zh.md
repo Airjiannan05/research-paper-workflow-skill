@@ -13,6 +13,40 @@
 
 ---
 
+## 快速开始
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/Airjiannan05/research-paper-workflow-skill.git
+
+# 2. 安装到 Claude Code（全局生效）
+mkdir -p ~/.claude/skills && cp -r research-paper-workflow-skill ~/.claude/skills/
+
+# 3. 重启 Claude Code，然后直接说：
+"帮我开始一个新的论文项目，方向是 XXX，目标投 NeurIPS"
+```
+
+> 首次使用会自动加载 `rpw-idea-optimize` 进入 idea 优化阶段。每个阶段结束都会给出下一步选项。详见 [§4 安装方式](#4-安装方式)。
+
+---
+
+## 目录
+
+1. [这个 Skill 解决什么问题？](#1-这个-skill-解决什么问题)
+2. [核心原则](#2-核心原则)
+3. [目录结构](#3-目录结构)
+4. [安装方式](#4-安装方式)
+5. [完整工作流](#5-完整工作流)
+6. [模块功能说明](#6-模块功能说明)（含[触发边界表](#触发边界)）
+7. [下一步菜单机制](#7-下一步菜单机制)
+8. [外部信息三次检查规则](#8-外部信息三次检查规则)
+9. [典型使用路径](#9-典型使用路径)
+10. [脚本工具](#10-脚本工具)
+11. [推荐启动命令](#11-推荐启动命令)
+12. [注意事项](#12-注意事项)
+
+---
+
 ## 1. 这个 Skill 解决什么问题？
 
 很多论文项目失败不是因为不会写，而是因为流程失控：
@@ -54,6 +88,8 @@
 
 ---
 
+![Architecture](figures/architecture.svg)
+
 ## 3. 目录结构
 
 ```text
@@ -88,7 +124,11 @@ research-paper-workflow/
 ├── .gitignore                         ← 忽略 Python 缓存、系统垃圾、用户论文产物
 │
 ├── figures/
-│   └── Workflow-Core.png              ← 14 阶段完整工作流可视化图
+│   ├── architecture.svg               ← 16 skill 家族架构总览
+│   ├── workflow.svg                   ← 14 阶段流水线
+│   ├── routing.svg                    ← 触发边界路由图
+│   ├── artifact-flow.svg              ← 产物流转依赖链
+│   └── Workflow-Core.png              ← 工作流核心示意图
 ├── docs/
 │   └── ARCHITECTURE.md                ← 架构设计文档：分层图、数据流、gate 系统、扩展点
 │
@@ -259,7 +299,9 @@ Agent Skills 格式是开放标准。将 skill 文件夹放入对应 agent 的 s
 14. rpw-rebuttal           → 审稿回复 + revision ledger
 ```
 
-![Workflow Core](figures/Workflow-Core.png)
+![Workflow Pipeline](figures/workflow.svg)
+
+![Artifact Flow](figures/artifact-flow.svg)
 
 你不需要每次从第 0 步开始。可以根据已有材料直接跳到任意阶段。
 
@@ -268,6 +310,8 @@ Agent Skills 格式是开放标准。将 skill 文件夹放入对应 agent 的 s
 ## 6. 模块功能说明
 
 ### 触发边界
+
+![Routing](figures/routing.svg)
 
 相似的任务必须进入不同的模式，避免同时触发多个 skill。
 

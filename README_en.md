@@ -13,6 +13,40 @@ It is especially useful for AAAI, NeurIPS, ICLR, CVPR, ACL, GECCO, and CCF-A-sty
 
 ---
 
+## Quick Start
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/Airjiannan05/research-paper-workflow-skill.git
+
+# 2. Install for Claude Code (global)
+mkdir -p ~/.claude/skills && cp -r research-paper-workflow-skill ~/.claude/skills/
+
+# 3. Restart Claude Code, then say:
+"Start a new paper project on <your topic>, targeting NeurIPS"
+```
+
+> The first request auto-loads `rpw-idea-optimize` for idea shaping. Every stage ends with a next-step menu. See [§4 Installation](#4-installation) for all platforms.
+
+---
+
+## Table of Contents
+
+1. [What problem does this Skill solve?](#1-what-problem-does-this-skill-solve)
+2. [Core principles](#2-core-principles)
+3. [Directory structure](#3-directory-structure)
+4. [Installation](#4-installation)
+5. [Full workflow](#5-full-workflow)
+6. [Mode guide](#6-mode-guide) (with [Trigger Boundaries](#trigger-boundaries))
+7. [Next-step menu](#7-next-step-menu)
+8. [Triple-check rule](#8-triple-check-rule-for-external-information)
+9. [Common usage paths](#9-common-usage-paths)
+10. [Scripts](#10-scripts)
+11. [Recommended first command](#11-recommended-first-command)
+12. [Notes and limitations](#12-notes-and-limitations)
+
+---
+
 ## 1. What problem does this Skill solve?
 
 Many research projects fail not because the writing is weak, but because the workflow is uncontrolled:
@@ -54,6 +88,8 @@ This Skill separates these concerns into explicit stages and gives a next-step m
 
 ---
 
+![Architecture](figures/architecture.svg)
+
 ## 3. Directory structure
 
 ```text
@@ -88,7 +124,11 @@ research-paper-workflow/
 ├── .gitignore                         ← ignores Python cache, OS junk, user paper artifacts
 │
 ├── figures/
-│   └── Workflow-Core.png              ← 14-stage workflow visualization
+│   ├── architecture.svg               ← 16-skill family architecture overview
+│   ├── workflow.svg                   ← 14-stage pipeline
+│   ├── routing.svg                    ← trigger boundary routing map
+│   ├── artifact-flow.svg              ← artifact dependency chain
+│   └── Workflow-Core.png              ← workflow core diagram
 ├── docs/
 │   └── ARCHITECTURE.md                ← architecture: layers, data flow, gate system, extension points
 │
@@ -254,7 +294,9 @@ All agents auto-discover skills from these directories. Restart the agent after 
 14. rpw-rebuttal           → reviewer response + revision ledger
 ```
 
-![Workflow Core](figures/Workflow-Core.png)
+![Workflow Pipeline](figures/workflow.svg)
+
+![Artifact Flow](figures/artifact-flow.svg)
 
 You do not need to start from Stage 0 every time. If you already have a draft, experiment plan, result logs, or reviewer comments, you can jump directly to the relevant mode.
 
@@ -263,6 +305,8 @@ You do not need to start from Stage 0 every time. If you already have a draft, e
 ## 6. Mode guide
 
 ### Trigger Boundaries
+
+![Routing](figures/routing.svg)
 
 Similar tasks must route to different modes. This is the most important governance rule: avoid one request triggering multiple skills.
 

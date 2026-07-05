@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 760" width="1180" height="760" role="img" aria-labelledby="title desc">
+  <title id="title">Trigger boundary routing</title>
+  <desc id="desc">Intent examples mapped to the correct skill and the boundary to avoid.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f7f8fb}.panel{fill:#fff;stroke:#d8dee8;stroke-width:1.3}.head{fill:#263247}.rowA{fill:#fff}.rowB{fill:#f1f4f8}
+      .title{font:700 27px system-ui,-apple-system,Segoe UI,sans-serif;fill:#172033}.sub{font:500 14px system-ui,-apple-system,Segoe UI,sans-serif;fill:#637083}
+      .th{font:700 12px system-ui,-apple-system,Segoe UI,sans-serif;fill:#fff}.intent{font:600 12px system-ui,-apple-system,Segoe UI,sans-serif;fill:#253149}
+      .skill{font:700 12px system-ui,-apple-system,Segoe UI,sans-serif;fill:#172033}.muted{font:500 11px system-ui,-apple-system,Segoe UI,sans-serif;fill:#637083}
+      .tag{font:700 9px system-ui,-apple-system,Segoe UI,sans-serif;fill:#fff}.rule{font:600 11px system-ui,-apple-system,Segoe UI,sans-serif;fill:#637083}
+      .early{fill:#4078c0}.evidence{fill:#2f8f64}.exec{fill:#bd5279}.write{fill:#6763c3}.review{fill:#bc742d}.final{fill:#8158c9}
+      .line{stroke:#d8dee8;stroke-width:1}.arrow{stroke:#93a0b4;stroke-width:1.6;fill:none}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#93a0b4"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1180" height="760"/>
+  <text class="title" x="58" y="58">Trigger Boundary Routing</text>
+  <text class="sub" x="58" y="86">The root router selects one skill by intent. Similar prompts are deliberately separated to prevent mode drift.</text>
+
+  <g transform="translate(62 124)">
+    <rect class="panel" width="1056" height="560" rx="14"/>
+    <rect class="head" width="1056" height="42" rx="14"/>
+    <rect class="head" y="24" width="1056" height="18"/>
+    <text class="th" x="28" y="26">User intent</text>
+    <text class="th" x="402" y="26">Route to</text>
+    <text class="th" x="650" y="26">Do not use</text>
+    <text class="th" x="876" y="26">Why</text>
+
+    <g transform="translate(0 42)">
+      <rect class="rowA" width="1056" height="36"/><text class="intent" x="28" y="23">Vague idea needs rescue</text><text class="skill" x="402" y="23">rpw-idea-optimize</text><text class="muted" x="650" y="23">rpw-idea-review</text><text class="muted" x="876" y="23">generate options before scoring</text>
+      <rect class="rowB" y="36" width="1056" height="36"/><text class="intent" x="28" y="59">Score or rank ideas</text><text class="skill" x="402" y="59">rpw-idea-review</text><text class="muted" x="650" y="59">rpw-idea-optimize</text><text class="muted" x="876" y="59">evaluate existing candidates</text>
+      <rect class="rowA" y="72" width="1056" height="36"/><text class="intent" x="28" y="95">Recent papers or scoop risk</text><text class="skill" x="402" y="95">rpw-literature-monitor</text><text class="muted" x="650" y="95">rpw-literature-search</text><text class="muted" x="876" y="95">track new movement</text>
+      <rect class="rowB" y="108" width="1056" height="36"/><text class="intent" x="28" y="131">Related work, baselines, gap map</text><text class="skill" x="402" y="131">rpw-literature-search</text><text class="muted" x="650" y="131">rpw-integrity-audit</text><text class="muted" x="876" y="131">build the evidence base</text>
+      <rect class="rowA" y="144" width="1056" height="36"/><text class="intent" x="28" y="167">Map claims to required evidence</text><text class="skill" x="402" y="167">rpw-claim-manifest</text><text class="muted" x="650" y="167">rpw-experiment-design</text><text class="muted" x="876" y="167">define support before methods</text>
+      <rect class="rowB" y="180" width="1056" height="36"/><text class="intent" x="28" y="203">Design metrics, baselines, ablations</text><text class="skill" x="402" y="203">rpw-experiment-design</text><text class="muted" x="650" y="203">rpw-paper-writer</text><text class="muted" x="876" y="203">decide tests before prose</text>
+      <rect class="rowA" y="216" width="1056" height="36"/><text class="intent" x="28" y="239">Turn experiment plan into code/config</text><text class="skill" x="402" y="239">rpw-experiment-implementation</text><text class="muted" x="650" y="239">rpw-experiment-design</text><text class="muted" x="876" y="239">operationalize approved design</text>
+      <rect class="rowB" y="252" width="1056" height="36"/><text class="intent" x="28" y="275">Validate logs or aggregate runs</text><text class="skill" x="402" y="275">rpw-result-engineering</text><text class="muted" x="650" y="275">rpw-paper-writer</text><text class="muted" x="876" y="275">facts before narrative</text>
+      <rect class="rowA" y="288" width="1056" height="36"/><text class="intent" x="28" y="311">Explain what results mean</text><text class="skill" x="402" y="311">rpw-result-analysis</text><text class="muted" x="650" y="311">rpw-paper-writer</text><text class="muted" x="876" y="311">support, limits, and claims</text>
+      <rect class="rowB" y="324" width="1056" height="36"/><text class="intent" x="28" y="347">Draft, polish, compress paper text</text><text class="skill" x="402" y="347">rpw-paper-writer</text><text class="muted" x="650" y="347">rpw-paper-reviewer</text><text class="muted" x="876" y="347">authoring, not judgment</text>
+      <rect class="rowA" y="360" width="1056" height="36"/><text class="intent" x="28" y="383">Simulate reviewers or AC</text><text class="skill" x="402" y="383">rpw-paper-reviewer</text><text class="muted" x="650" y="383">rpw-paper-writer</text><text class="muted" x="876" y="383">critique without rewriting</text>
+      <rect class="rowB" y="396" width="1056" height="36"/><text class="intent" x="28" y="419">Audit claims, citations, numbers</text><text class="skill" x="402" y="419">rpw-integrity-audit</text><text class="muted" x="650" y="419">rpw-literature-search</text><text class="muted" x="876" y="419">verify existing support</text>
+      <rect class="rowA" y="432" width="1056" height="36"/><text class="intent" x="28" y="455">Check submission readiness</text><text class="skill" x="402" y="455">rpw-submission-check</text><text class="muted" x="650" y="455">rpw-paper-writer</text><text class="muted" x="876" y="455">format and policy compliance</text>
+      <rect class="rowB" y="468" width="1056" height="36"/><text class="intent" x="28" y="491">Respond to reviewer comments</text><text class="skill" x="402" y="491">rpw-rebuttal</text><text class="muted" x="650" y="491">rpw-paper-reviewer</text><text class="muted" x="876" y="491">response strategy and ledger</text>
+      <line class="line" x1="376" y1="0" x2="376" y2="504"/><line class="line" x1="624" y1="0" x2="624" y2="504"/><line class="line" x1="850" y1="0" x2="850" y2="504"/>
+    </g>
+  </g>
+
+  <g transform="translate(62 704)">
+    <rect class="panel" width="1056" height="34" rx="9"/>
+    <text class="rule" x="22" y="22">Routing invariant: load the root index, choose one rpw-* skill, read its local SKILL.md, then apply shared references only when needed.</text>
+  </g>
+</svg>

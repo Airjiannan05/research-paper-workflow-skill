@@ -1,0 +1,30 @@
+# Auto-detect text files, normalize line endings to LF on commit
+* text=auto
+
+# Python scripts — always LF
+*.py text eol=lf
+
+# Shell scripts — always LF
+*.sh text eol=lf
+
+# Markdown documentation — always LF
+*.md text eol=lf
+
+# YAML configs — always LF
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# JSON — always LF
+*.json text eol=lf
+
+# CSV — always LF
+*.csv text eol=lf
+
+# SVG images — binary, don't modify
+*.svg binary
+
+# PNG images — binary, don't modify
+*.png binary
+
+# LICENSE — always LF
+LICENSE text eol=lf

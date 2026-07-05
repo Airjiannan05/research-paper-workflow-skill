@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="1200" height="720" role="img" aria-labelledby="title desc">
+  <title id="title">Artifact dependency chain</title>
+  <desc id="desc">Research artifacts flowing through owner skills with provenance gates.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f7f8fb}.panel{fill:#fff;stroke:#d8dee8;stroke-width:1.3}.lane{fill:#eef2f7;stroke:#d8dee8;stroke-width:1}
+      .title{font:700 27px system-ui,-apple-system,Segoe UI,sans-serif;fill:#172033}.sub{font:500 14px system-ui,-apple-system,Segoe UI,sans-serif;fill:#637083}
+      .h{font:700 14px system-ui,-apple-system,Segoe UI,sans-serif;fill:#253149}.file{font:700 12px ui-monospace,SFMono-Regular,Consolas,monospace;fill:#172033}
+      .own{font:600 10px system-ui,-apple-system,Segoe UI,sans-serif;fill:#637083}.note{font:600 11px system-ui,-apple-system,Segoe UI,sans-serif;fill:#637083}
+      .line{stroke:#93a0b4;stroke-width:1.7;fill:none}.dash{stroke:#aeb8c8;stroke-width:1.4;stroke-dasharray:5 5;fill:none}
+      .state{fill:#fff2c8}.early{fill:#dceafe}.evidence{fill:#d8f3e5}.exec{fill:#f8dce9}.write{fill:#e5e3ff}.review{fill:#ffe2bd}.final{fill:#e8dcff}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#93a0b4"/>
+    </marker>
+    <filter id="shadow" x="-8%" y="-16%" width="116%" height="132%">
+      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#152033" flood-opacity=".08"/>
+    </filter>
+  </defs>
+
+  <rect class="bg" width="1200" height="720"/>
+  <text class="title" x="58" y="58">Artifact Dependency Chain</text>
+  <text class="sub" x="58" y="86">Artifacts are owned by one skill, read by downstream skills, and blocked by gates when provenance is incomplete.</text>
+
+  <rect class="lane" x="50" y="118" width="1100" height="90" rx="14"/>
+  <rect class="lane" x="50" y="242" width="1100" height="90" rx="14"/>
+  <rect class="lane" x="50" y="366" width="1100" height="90" rx="14"/>
+  <rect class="lane" x="50" y="490" width="1100" height="90" rx="14"/>
+  <text class="h" x="76" y="148">1. Define the research object</text>
+  <text class="h" x="76" y="272">2. Build evidence and design tests</text>
+  <text class="h" x="76" y="396">3. Run, verify, and interpret results</text>
+  <text class="h" x="76" y="520">4. Write, review, submit, revise</text>
+
+  <g transform="translate(76 164)">
+    <rect class="panel state" width="150" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="25">paper_state.yaml</text><text class="own" x="16" y="44">rpw-pipeline</text>
+    <path class="line" d="M154 29 H188" marker-end="url(#arrow)"/>
+    <g transform="translate(196 0)"><rect class="panel early" width="150" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="25">idea_brief.md</text><text class="own" x="16" y="44">idea optimize</text></g>
+    <path class="line" d="M350 29 H384" marker-end="url(#arrow)"/>
+    <g transform="translate(392 0)"><rect class="panel early" width="150" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="25">idea_review.md</text><text class="own" x="16" y="44">idea review</text></g>
+    <path class="line" d="M546 29 H580" marker-end="url(#arrow)"/>
+    <g transform="translate(588 0)"><rect class="panel early" width="210" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="22">literature_plan.md</text><text class="file" x="16" y="39">paper_cards.md</text><text class="own" x="132" y="44">literature</text></g>
+  </g>
+
+  <g transform="translate(250 288)">
+    <rect class="panel early" width="190" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="25">related_work_matrix.md</text><text class="own" x="16" y="44">literature search</text>
+    <path class="line" d="M194 29 H228" marker-end="url(#arrow)"/>
+    <g transform="translate(236 0)"><rect class="panel evidence" width="170" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="25">claim_manifest.md</text><text class="own" x="16" y="44">claim manifest</text></g>
+    <path class="line" d="M410 29 H444" marker-end="url(#arrow)"/>
+    <g transform="translate(452 0)"><rect class="panel evidence" width="178" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="25">experiment_plan.md</text><text class="own" x="16" y="44">experiment design</text></g>
+    <path class="line" d="M634 29 H668" marker-end="url(#arrow)"/>
+    <g transform="translate(676 0)"><rect class="panel exec" width="194" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="22">run_matrix.csv</text><text class="file" x="16" y="39">implementation_plan.md</text></g>
+  </g>
+
+  <g transform="translate(124 412)">
+    <rect class="panel exec" width="178" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="25">results/raw/*.csv</text><text class="own" x="16" y="44">experiment runs</text>
+    <path class="line" d="M182 29 H216" marker-end="url(#arrow)"/>
+    <g transform="translate(224 0)"><rect class="panel exec" width="164" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="22">result_audit.md</text><text class="file" x="16" y="39">tables/*.tex</text></g>
+    <path class="line" d="M392 29 H426" marker-end="url(#arrow)"/>
+    <g transform="translate(434 0)"><rect class="panel exec" width="176" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="25">results_analysis.md</text><text class="own" x="16" y="44">result analysis</text></g>
+    <path class="line" d="M614 29 H648" marker-end="url(#arrow)"/>
+    <g transform="translate(656 0)"><rect class="panel write" width="160" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="25">paper_draft.tex</text><text class="own" x="16" y="44">paper writer</text></g>
+  </g>
+
+  <g transform="translate(176 536)">
+    <rect class="panel review" width="170" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="25">review_report.md</text><text class="own" x="16" y="44">paper reviewer</text>
+    <path class="line" d="M174 29 H208" marker-end="url(#arrow)"/>
+    <g transform="translate(216 0)"><rect class="panel review" width="220" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="22">integrity_report.md</text><text class="file" x="16" y="39">source_verification_log.md</text></g>
+    <path class="line" d="M440 29 H474" marker-end="url(#arrow)"/>
+    <g transform="translate(482 0)"><rect class="panel final" width="194" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="25">submission_checklist.md</text><text class="own" x="16" y="44">submission check</text></g>
+    <path class="line" d="M680 29 H714" marker-end="url(#arrow)"/>
+    <g transform="translate(722 0)"><rect class="panel final" width="170" height="58" rx="9" filter="url(#shadow)"/><text class="file" x="16" y="25">revision_ledger.md</text><text class="own" x="16" y="44">rebuttal</text></g>
+  </g>
+
+  <path class="dash" d="M874 194 C1018 194 1018 288 1120 288" marker-end="url(#arrow)"/>
+  <path class="dash" d="M966 318 C1062 318 1062 412 940 412" marker-end="url(#arrow)"/>
+  <path class="dash" d="M996 566 C1078 566 1082 458 914 454" marker-end="url(#arrow)"/>
+
+  <rect class="panel" x="72" y="636" width="1056" height="46" rx="10"/>
+  <text class="note" x="96" y="655">Ownership invariant: a downstream skill may read upstream artifacts, but it does not overwrite them without an explicit handoff.</text>
+  <text class="note" x="96" y="674">Provenance invariant: no artifact advances if source existence, metadata, or support checks are missing for a critical claim.</text>
+</svg>
