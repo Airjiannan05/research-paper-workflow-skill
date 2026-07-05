@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment & secrets
+.env
+.env.*
+*.key
+*.pem
+
+# User-generated paper project artifacts (these belong to the user's project, not this skill repo)
+paper_state.yaml
+idea_brief.md
+research_brief.md
+idea_review.md
+literature_search_plan.md
+paper_cards.md
+related_work_matrix.md
+claim_manifest.md
+experiment_plan.md
+implementation_plan.md
+run_matrix.csv
+result_audit.md
+results_analysis.md
+source_verification_log.md
+review_report.md
+integrity_report.md
+submission_checklist.md
+revision_ledger.md
+results/
+paper/

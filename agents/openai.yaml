@@ -1,0 +1,5 @@
+interface:
+  display_name: Research Paper Workflow
+  short_description: End-to-end CS/AI research paper pipeline from idea to submission.
+  icon: 📄
+  accent_color: '#4F46E5'

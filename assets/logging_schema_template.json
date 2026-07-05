@@ -1,0 +1,22 @@
+{
+  "run_id": "string",
+  "claim_id": "string",
+  "experiment_family": "string",
+  "dataset": "string",
+  "dataset_version": "string",
+  "split": "string",
+  "method": "string",
+  "baseline": "string_or_null",
+  "ablation": "string_or_null",
+  "seed": "integer",
+  "config_path": "string",
+  "config_hash": "string_or_null",
+  "git_commit": "string_or_null",
+  "status": "completed|failed|excluded_with_reason|planned|running",
+  "metrics": {"metric_name": "number"},
+  "wall_time_sec": "number_or_null",
+  "device": "string_or_null",
+  "artifact_path": "string_or_null",
+  "failure_reason": "string_or_null",
+  "notes": "string_or_null"
+}

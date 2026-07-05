@@ -1,0 +1,37 @@
+experiment:
+  run_id: TBD
+  claim_id: TBD
+  family: main
+  seed: 0
+  output_dir: results/raw
+
+data:
+  name: TBD
+  version: TBD
+  split: TBD
+  preprocessing: TBD
+
+method:
+  name: TBD
+  implementation: src/methods/TBD.py
+  params: {}
+
+baseline:
+  name: null
+  source: null
+  params: {}
+
+evaluation:
+  metrics: []
+  primary_metric: TBD
+  higher_is_better: true
+
+resources:
+  device: auto
+  max_runtime_sec: null
+  notes: TBD
+
+logging:
+  format: jsonl
+  save_predictions: false
+  save_artifacts: true

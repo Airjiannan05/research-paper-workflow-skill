@@ -1,0 +1,2 @@
+run_id,claim_id,experiment_family,dataset,method,baseline,ablation,seed,config_path,command,expected_outputs,status,priority
+main_dataset1_ours_s0,C1,main,dataset1,ours,,none,0,configs/main/dataset1_ours_s0.yaml,python scripts/run_experiment.py --config configs/main/dataset1_ours_s0.yaml,results/raw/main_dataset1_ours_s0.json,planned,P0

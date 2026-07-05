@@ -1,0 +1,36 @@
+project:
+  title: TBD
+  target_venue: TBD
+  stage: idea
+  paper_type: empirical
+  owner_mode: pipeline
+artifacts:
+  idea_brief: TBD
+  literature_notes: TBD
+  experiment_plan: TBD
+  implementation_plan: TBD
+  run_matrix: TBD
+  result_logs: TBD
+  results: TBD
+  manuscript: TBD
+  review_report: TBD
+  integrity_report: TBD
+  submission_check: TBD
+claims: []
+experiments: []
+runs: []
+reviews: []
+revision_ledger: []
+submission_checks: []
+
+source_verification:
+  log: source_verification_log.md
+  policy: triple_check
+  required_for:
+    - literature_search
+    - literature_monitor
+    - citation_integrity
+    - venue_rules
+    - benchmark_dataset_facts
+    - repository_tool_facts
+  open_items: []

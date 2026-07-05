@@ -1,0 +1,3 @@
+# Bundled utility scripts are designed to run with the Python standard library.
+# Python 3.10+ is recommended.
+# No third-party packages are required for the default scripts.
